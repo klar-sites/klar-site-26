@@ -330,7 +330,7 @@
     <article class="vblog-2026">
       <div class="vblog-2026__shell">
 
-        <a class="vblog-2026__back" href="/blog">
+        <a class="vblog-2026__back" href="/">
           <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
             <path d="M12.5 4.5L7 10l5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
@@ -341,9 +341,9 @@
         <div id="vblog-2026-post">
           <header>
             <div class="vblog-2026__meta">
-              
+              <span class="vblog-2026__category">Technology</span>
               <span class="vblog-2026__date"></span>
-              
+              <span class="vblog-2026__dot"></span><span class="vblog-2026__readtime">2 timmar</span>
             </div>
 
             <h1 class="vblog-2026__title">Det här är den bästa bloggen jag har sett</h1>
@@ -351,10 +351,10 @@
             <p class="vblog-2026__lead">Det kommer att bli riktigt bra det här</p>
 
             <div class="vblog-2026__author">
-              <span class="vblog-2026__avatar"></span>
+              <span class="vblog-2026__avatar">GL</span>
               <div>
-                <div class="vblog-2026__author-name">fasdfas</div>
-                <div class="vblog-2026__author-role">sadf</div>
+                <div class="vblog-2026__author-name">Klar Klarsson</div>
+                <div class="vblog-2026__author-role">Developer</div>
               </div>
             </div>
           </header>
@@ -399,7 +399,8 @@
           {% endif %}
 
           <div class="vblog-2026__body">
-            {% for block in page.content.text %}{{ block.html | raw }}{% else %}<p>Start writing your article…</p>{% endfor %}
+            {% for block in page.content.text %}{{ block.html | raw }}{% else %}<p>Start writing your article…</p>
+            {% endfor %}
           </div>
 
           {% if page.content.tags %}
