@@ -1,1200 +1,700 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vector Journal — Blog Post</title>
-  <meta name="description" content="A premium editorial blog post template for Vector's AI-native execution workspace.">
+  <title>Vector — Blog post</title>
+  <meta name="description" content="Read Vector insights on AI-native execution, product strategy, planning systems, and modern team operations.">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer=""></script>
   <style>
-    :root {
-      --klar-blogpost-v47x-color-bg: #07080d;
-      --klar-blogpost-v47x-color-bg-soft: #0c0e16;
-      --klar-blogpost-v47x-color-bg-elevated: #111421;
-      --klar-blogpost-v47x-color-surface: #151927;
-      --klar-blogpost-v47x-color-surface-2: #1b2032;
-      --klar-blogpost-v47x-color-line: rgba(255, 255, 255, 0.11);
-      --klar-blogpost-v47x-color-line-strong: rgba(255, 255, 255, 0.18);
-      --klar-blogpost-v47x-color-text: #f5f7fb;
-      --klar-blogpost-v47x-color-text-muted: #a8b0c3;
-      --klar-blogpost-v47x-color-text-soft: #7f879a;
-      --klar-blogpost-v47x-color-primary: #8b5cf6;
-      --klar-blogpost-v47x-color-primary-strong: #a78bfa;
-      --klar-blogpost-v47x-color-primary-soft: rgba(139, 92, 246, 0.18);
-      --klar-blogpost-v47x-color-cyan: #22d3ee;
-      --klar-blogpost-v47x-color-cyan-soft: rgba(34, 211, 238, 0.16);
-      --klar-blogpost-v47x-color-green: #34d399;
-      --klar-blogpost-v47x-color-amber: #fbbf24;
-      --klar-blogpost-v47x-color-danger: #fb7185;
-      --klar-blogpost-v47x-color-white: #ffffff;
-
-      --klar-blogpost-v47x-gradient-page: radial-gradient(circle at 18% 4%, rgba(139, 92, 246, 0.32), transparent 34%),
-        radial-gradient(circle at 84% 8%, rgba(34, 211, 238, 0.18), transparent 30%),
-        linear-gradient(180deg, #07080d, #0c0e16 48%, #07080d 100%);
-      --klar-blogpost-v47x-gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.032));
-      --klar-blogpost-v47x-gradient-primary: linear-gradient(135deg, #a78bfa, #8b5cf6 58%, #6d5dfc);
-      --klar-blogpost-v47x-gradient-border: linear-gradient(135deg, rgba(167, 139, 250, 0.52), rgba(34, 211, 238, 0.22), rgba(255, 255, 255, 0.08));
-
-      --klar-blogpost-v47x-font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      --klar-blogpost-v47x-font-mono: "SFMono-Regular", "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
-
-      --klar-blogpost-v47x-radius-sm: 0.625rem;
-      --klar-blogpost-v47x-radius-md: 0.875rem;
-      --klar-blogpost-v47x-radius-lg: 1.25rem;
-      --klar-blogpost-v47x-radius-xl: 1.75rem;
-      --klar-blogpost-v47x-radius-2xl: 2.25rem;
-      --klar-blogpost-v47x-radius-full: 999rem;
-
-      --klar-blogpost-v47x-shadow-sm: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.24);
-      --klar-blogpost-v47x-shadow-md: 0 1.25rem 3rem rgba(0, 0, 0, 0.34);
-      --klar-blogpost-v47x-shadow-lg: 0 2rem 5rem rgba(0, 0, 0, 0.48);
-      --klar-blogpost-v47x-shadow-glow: 0 0 4rem rgba(139, 92, 246, 0.28);
-
-      --klar-blogpost-v47x-size-reading: 48rem;
-      --klar-blogpost-v47x-size-wide: 76rem;
-      --klar-blogpost-v47x-size-header: 4.5rem;
-
-      --klar-blogpost-v47x-ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
-      --klar-blogpost-v47x-ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
-      --klar-blogpost-v47x-duration-fast: 160ms;
-      --klar-blogpost-v47x-duration-base: 260ms;
-      --klar-blogpost-v47x-duration-slow: 700ms;
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    html {
-      min-width: 20rem;
-      color-scheme: dark;
-      scroll-behavior: smooth;
-      background: var(--klar-blogpost-v47x-color-bg);
-      text-size-adjust: 100%;
-    }
-
-    body {
-      margin: 0;
-      font-family: var(--klar-blogpost-v47x-font-sans);
-      color: var(--klar-blogpost-v47x-color-text);
-      background: var(--klar-blogpost-v47x-gradient-page);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    body::before {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      pointer-events: none;
-      content: "";
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.035) 0.0625rem, transparent 0.0625rem),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0.0625rem, transparent 0.0625rem);
-      background-size: 4rem 4rem;
-      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.86), transparent 74%);
-    }
-
-    body::after {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      content: "";
-      background:
-        linear-gradient(90deg, var(--klar-blogpost-v47x-color-bg) 0%, transparent 18%, transparent 82%, var(--klar-blogpost-v47x-color-bg) 100%),
-        radial-gradient(circle at 50% 0%, transparent, rgba(7, 8, 13, 0.74) 74%);
-    }
-
-    img,
-    svg {
-      display: block;
-      max-width: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    p,
-    h1,
-    h2,
-    h3,
-    h4,
-    blockquote {
-      margin: 0;
-    }
-
-    button {
-      border: 0;
-      font: inherit;
-    }
-
-    ::selection {
-      color: var(--klar-blogpost-v47x-color-white);
-      background: rgba(139, 92, 246, 0.55);
-    }
-
-    :focus-visible {
-      outline: 0.1875rem solid rgba(34, 211, 238, 0.75);
-      outline-offset: 0.25rem;
-    }
-
-    .klar-blogpost-v47x-skip-link {
-      position: fixed;
-      top: 1rem;
-      left: 1rem;
-      z-index: 100;
-      padding: 0.75rem 1rem;
-      color: var(--klar-blogpost-v47x-color-bg);
-      background: var(--klar-blogpost-v47x-color-white);
-      border-radius: var(--klar-blogpost-v47x-radius-full);
-      transform: translateY(-200%);
-      transition: transform var(--klar-blogpost-v47x-duration-base) var(--klar-blogpost-v47x-ease-standard);
-    }
-
-    .klar-blogpost-v47x-skip-link:focus {
-      transform: translateY(0);
-    }
-
-    .klar-blogpost-v47x-page-shell {
+    .vector-blogpost-9q7-shell {
+      --vector-blogpost-9q7-prose-width: 48rem;
+      --vector-blogpost-9q7-aside-width: 17rem;
       position: relative;
-      min-height: 100vh;
     }
 
-    .klar-blogpost-v47x-reading-layout {
-      width: min(calc(100% - 2rem), var(--klar-blogpost-v47x-size-reading));
-      margin-inline: auto;
-    }
-
-    .klar-blogpost-v47x-wide-layout {
-      width: min(calc(100% - 2rem), var(--klar-blogpost-v47x-size-wide));
-      margin-inline: auto;
-    }
-
-    .klar-blogpost-v47x-site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      height: var(--klar-blogpost-v47x-size-header);
-      border-bottom: 0.0625rem solid transparent;
-      transition:
-        background-color var(--klar-blogpost-v47x-duration-base) var(--klar-blogpost-v47x-ease-standard),
-        border-color var(--klar-blogpost-v47x-duration-base) var(--klar-blogpost-v47x-ease-standard),
-        backdrop-filter var(--klar-blogpost-v47x-duration-base) var(--klar-blogpost-v47x-ease-standard);
-    }
-
-    .klar-blogpost-v47x-state-scrolled {
-      background: rgba(7, 8, 13, 0.78);
-      border-color: var(--klar-blogpost-v47x-color-line);
-      backdrop-filter: blur(1.25rem);
-    }
-
-    .klar-blogpost-v47x-header-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: var(--klar-blogpost-v47x-size-header);
-      gap: 1rem;
-    }
-
-    .klar-blogpost-v47x-brand-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.875rem;
-      font-weight: 750;
-      letter-spacing: -0.02em;
-      white-space: nowrap;
-    }
-
-    .klar-blogpost-v47x-logo-mark {
-      display: grid;
-      width: 2rem;
-      height: 2rem;
-      place-items: center;
+    .vector-blogpost-9q7-hero {
+      position: relative;
+      padding: var(--space-14) 0 var(--space-10);
       overflow: hidden;
-      color: var(--klar-blogpost-v47x-color-white);
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.22), transparent),
-        var(--klar-blogpost-v47x-gradient-primary);
-      border: 0.0625rem solid rgba(255, 255, 255, 0.2);
-      border-radius: var(--klar-blogpost-v47x-radius-sm);
-      box-shadow: 0 0 2rem rgba(139, 92, 246, 0.35);
     }
 
-    .klar-blogpost-v47x-logo-mark svg {
-      width: 1.05rem;
-      height: 1.05rem;
-    }
-
-    .klar-blogpost-v47x-header-links {
-      display: none;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .klar-blogpost-v47x-header-anchor {
-      display: inline-flex;
-      align-items: center;
-      min-height: 2.4rem;
-      padding: 0 0.9rem;
-      color: var(--klar-blogpost-v47x-color-text-muted);
-      font-size: 0.875rem;
-      font-weight: 650;
-      border-radius: var(--klar-blogpost-v47x-radius-full);
-      transition:
-        color var(--klar-blogpost-v47x-duration-fast) var(--klar-blogpost-v47x-ease-standard),
-        background-color var(--klar-blogpost-v47x-duration-fast) var(--klar-blogpost-v47x-ease-standard);
-    }
-
-    .klar-blogpost-v47x-header-anchor:hover {
-      color: var(--klar-blogpost-v47x-color-text);
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .klar-blogpost-v47x-share-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 2.75rem;
-      gap: 0.5rem;
-      padding: 0 1rem;
-      color: var(--klar-blogpost-v47x-color-text);
-      font-size: 0.875rem;
-      font-weight: 760;
-      letter-spacing: -0.01em;
-      background: rgba(255, 255, 255, 0.07);
-      border: 0.0625rem solid var(--klar-blogpost-v47x-color-line);
-      border-radius: var(--klar-blogpost-v47x-radius-full);
-      cursor: pointer;
-      box-shadow: inset 0 0.0625rem 0 rgba(255, 255, 255, 0.08);
-      transition:
-        transform var(--klar-blogpost-v47x-duration-fast) var(--klar-blogpost-v47x-ease-standard),
-        border-color var(--klar-blogpost-v47x-duration-fast) var(--klar-blogpost-v47x-ease-standard),
-        background-color var(--klar-blogpost-v47x-duration-fast) var(--klar-blogpost-v47x-ease-standard);
-    }
-
-    .klar-blogpost-v47x-share-button:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: var(--klar-blogpost-v47x-color-line-strong);
-      transform: translateY(-0.0625rem);
-    }
-
-    .klar-blogpost-v47x-share-button svg {
-      width: 1rem;
-      height: 1rem;
-    }
-
-    .klar-blogpost-v47x-reading-progress-track {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 70;
-      width: 100%;
-      height: 0.1875rem;
-      pointer-events: none;
-      background: transparent;
-    }
-
-    .klar-blogpost-v47x-reading-progress-bar {
-      width: 0%;
-      height: 100%;
-      background: linear-gradient(90deg, var(--klar-blogpost-v47x-color-primary-strong), var(--klar-blogpost-v47x-color-cyan));
-      box-shadow: 0 0 1.5rem rgba(139, 92, 246, 0.5);
-      transform-origin: left;
-    }
-
-    .klar-blogpost-v47x-post-hero {
-      position: relative;
-      padding: clamp(4rem, 10vw, 8rem) 0 2.5rem;
-    }
-
-    .klar-blogpost-v47x-post-hero::before {
+    .vector-blogpost-9q7-hero::before {
       position: absolute;
-      top: -8rem;
+      top: -12rem;
       left: 50%;
       z-index: -1;
-      width: min(64rem, 92vw);
+      width: min(72rem, 94vw);
       height: 34rem;
       content: "";
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.24), transparent 68%);
-      filter: blur(1rem);
+      background:
+        radial-gradient(circle at 28% 20%, rgba(139, 92, 246, 0.24), transparent 34%),
+        radial-gradient(circle at 72% 8%, rgba(34, 211, 238, 0.16), transparent 32%);
+      filter: blur(0.75rem);
       transform: translateX(-50%);
     }
 
-    .klar-blogpost-v47x-post-kicker-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
+    .vector-blogpost-9q7-hero-grid {
+      display: grid;
+      gap: var(--space-10);
+      align-items: end;
     }
 
-    .klar-blogpost-v47x-post-category {
+    .vector-blogpost-9q7-category {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
       width: fit-content;
-      padding: 0.5rem 0.75rem;
-      color: var(--klar-blogpost-v47x-color-primary-strong);
-      font-size: 0.75rem;
-      font-weight: 820;
+      padding: var(--space-2) var(--space-3);
+      margin-bottom: var(--space-5);
+      color: var(--color-primary-strong);
+      font-size: var(--text-xs);
+      font-weight: 850;
       line-height: 1;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       background: rgba(139, 92, 246, 0.1);
       border: 0.0625rem solid rgba(167, 139, 250, 0.24);
-      border-radius: var(--klar-blogpost-v47x-radius-full);
+      border-radius: var(--radius-full);
       box-shadow: inset 0 0.0625rem 0 rgba(255, 255, 255, 0.08);
     }
 
-    .klar-blogpost-v47x-post-category::before {
-      width: 0.45rem;
-      height: 0.45rem;
-      content: "";
-      background: var(--klar-blogpost-v47x-color-green);
-      border-radius: var(--klar-blogpost-v47x-radius-full);
-      box-shadow: 0 0 1rem var(--klar-blogpost-v47x-color-green);
-    }
-
-    .klar-blogpost-v47x-post-read-time {
-      color: var(--klar-blogpost-v47x-color-text-soft);
-      font-family: var(--klar-blogpost-v47x-font-mono);
-      font-size: 0.75rem;
-    }
-
-    .klar-blogpost-v47x-post-title {
-      max-width: 11ch;
-      margin-inline: auto;
-      color: var(--klar-blogpost-v47x-color-text);
-      font-size: clamp(2.75rem, 9vw, 6.4rem);
+    .vector-blogpost-9q7-title {
+      max-width: 13ch;
+      color: var(--color-text);
+      font-size: clamp(2.75rem, 8vw, 6.35rem);
       font-weight: 850;
-      line-height: 0.96;
-      letter-spacing: -0.08em;
-      text-align: center;
+      line-height: var(--leading-tight);
+      letter-spacing: -0.085em;
     }
 
-    .klar-blogpost-v47x-post-title-emphasis {
-      color: transparent;
-      background: linear-gradient(105deg, var(--klar-blogpost-v47x-color-white), #d9ccff 45%, var(--klar-blogpost-v47x-color-cyan) 120%);
-      background-clip: text;
-      -webkit-background-clip: text;
-    }
-
-    .klar-blogpost-v47x-post-excerpt {
-      max-width: 46rem;
-      margin: 1.5rem auto 0;
-      color: var(--klar-blogpost-v47x-color-text-muted);
-      font-size: clamp(1.0625rem, 2.2vw, 1.35rem);
+    .vector-blogpost-9q7-lead {
+      max-width: 45rem;
+      margin-top: var(--space-6);
+      color: var(--color-text-muted);
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
       line-height: 1.65;
-      text-align: center;
     }
 
-    .klar-blogpost-v47x-post-byline {
+    .vector-blogpost-9q7-meta-panel {
+      display: grid;
+      gap: var(--space-4);
+      padding: var(--space-5);
+      background: rgba(255, 255, 255, 0.045);
+      border: 0.0625rem solid var(--color-line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .vector-blogpost-9q7-author-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-3);
+      align-items: center;
+    }
+
+    .vector-blogpost-9q7-author-avatar {
+      display: grid;
+      width: 2.9rem;
+      height: 2.9rem;
+      place-items: center;
+      color: var(--color-white);
+      font-size: var(--text-sm);
+      font-weight: 850;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-cyan));
+      border: 0.0625rem solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-full);
+      box-shadow: 0 0 2rem rgba(139, 92, 246, 0.25);
+    }
+
+    .vector-blogpost-9q7-author-name {
+      color: var(--color-text);
+      font-size: var(--text-sm);
+      font-weight: 850;
+    }
+
+    .vector-blogpost-9q7-author-role {
+      color: var(--color-text-soft);
+      font-size: var(--text-xs);
+    }
+
+    .vector-blogpost-9q7-meta-list {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 2rem;
-      color: var(--klar-blogpost-v47x-color-text-soft);
-      font-size: 0.875rem;
+      gap: var(--space-2);
+      color: var(--color-text-soft);
+      font-size: var(--text-sm);
     }
 
-    .klar-blogpost-v47x-author-cluster {
+    .vector-blogpost-9q7-meta-pill {
       display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
-      color: var(--klar-blogpost-v47x-color-text);
-      font-weight: 720;
+      min-height: 2rem;
+      padding: 0 var(--space-3);
+      background: rgba(7, 8, 13, 0.42);
+      border: 0.0625rem solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-full);
     }
 
-    .klar-blogpost-v47x-author-avatar {
-      display: grid;
-      width: 2.25rem;
-      height: 2.25rem;
-      place-items: center;
-      color: var(--klar-blogpost-v47x-color-white);
-      font-size: 0.75rem;
-      font-weight: 850;
-      background: linear-gradient(135deg, var(--klar-blogpost-v47x-color-primary), var(--klar-blogpost-v47x-color-cyan));
-      border: 0.125rem solid var(--klar-blogpost-v47x-color-bg);
-      border-radius: var(--klar-blogpost-v47x-radius-full);
-    }
-
-    .klar-blogpost-v47x-post-date {
-      color: var(--klar-blogpost-v47x-color-text-soft);
-    }
-
-    .klar-blogpost-v47x-cover-frame {
+    .vector-blogpost-9q7-figure {
       position: relative;
-      width: min(calc(100% - 2rem), 68rem);
-      margin: 2.5rem auto 0;
+      margin: var(--space-10) 0 0;
     }
 
-    .klar-blogpost-v47x-cover-frame::before {
+    .vector-blogpost-9q7-figure::before {
       position: absolute;
-      inset: -0.125rem;
+      inset: -0.0625rem;
       z-index: -1;
       content: "";
-      background: var(--klar-blogpost-v47x-gradient-border);
-      border-radius: calc(var(--klar-blogpost-v47x-radius-2xl) + 0.125rem);
-      opacity: 0.88;
+      background: var(--gradient-border);
+      border-radius: calc(var(--radius-2xl) + 0.0625rem);
+      opacity: 0.75;
     }
 
-    .klar-blogpost-v47x-cover-frame::after {
-      position: absolute;
-      inset: auto 8% -8% 8%;
-      z-index: -2;
-      height: 8rem;
-      content: "";
-      background: rgba(139, 92, 246, 0.32);
-      border-radius: var(--klar-blogpost-v47x-radius-full);
-      filter: blur(3rem);
-    }
-
-    .klar-blogpost-v47x-cover-image {
+    .vector-blogpost-9q7-hero-image {
       width: 100%;
       aspect-ratio: 16 / 9;
       object-fit: cover;
-      background:
-        radial-gradient(circle at 18% 18%, rgba(139, 92, 246, 0.36), transparent 34%),
-        radial-gradient(circle at 82% 20%, rgba(34, 211, 238, 0.24), transparent 32%),
-        linear-gradient(135deg, #151927, #07080d);
-      border: 0.0625rem solid var(--klar-blogpost-v47x-color-line);
-      border-radius: var(--klar-blogpost-v47x-radius-2xl);
-      box-shadow: var(--klar-blogpost-v47x-shadow-lg);
+      background: var(--color-bg-elevated);
+      border: 0.0625rem solid var(--color-line);
+      border-radius: var(--radius-2xl);
+      box-shadow: var(--shadow-lg);
     }
 
-    .klar-blogpost-v47x-article-shell {
-      position: relative;
-      padding: clamp(3rem, 7vw, 5rem) 0;
+    .vector-blogpost-9q7-caption {
+      margin-top: var(--space-3);
+      color: var(--color-text-soft);
+      font-size: var(--text-sm);
+      text-align: center;
     }
 
-    .klar-blogpost-v47x-article-grid {
+    .vector-blogpost-9q7-content-zone {
+      padding: var(--space-10) 0 var(--space-20);
+    }
+
+    .vector-blogpost-9q7-content-grid {
       display: grid;
-      gap: 2rem;
+      gap: var(--space-8);
+      align-items: start;
     }
 
-    .klar-blogpost-v47x-sidebar-panel {
+    .vector-blogpost-9q7-toc {
       display: none;
+      padding: var(--space-5);
+      background: rgba(255, 255, 255, 0.035);
+      border: 0.0625rem solid var(--color-line);
+      border-radius: var(--radius-xl);
     }
 
-    .klar-blogpost-v47x-article-body {
-      color: var(--klar-blogpost-v47x-color-text-muted);
-      font-size: clamp(1.0625rem, 1.6vw, 1.1875rem);
-      line-height: 1.78;
-    }
-
-    .klar-blogpost-v47x-article-body > * + * {
-      margin-top: 1.35em;
-    }
-
-    .klar-blogpost-v47x-article-body h2 {
-      margin-top: 2.2em;
-      color: var(--klar-blogpost-v47x-color-text);
-      font-size: clamp(1.85rem, 4vw, 3rem);
-      font-weight: 830;
-      line-height: 1.08;
-      letter-spacing: -0.055em;
-    }
-
-    .klar-blogpost-v47x-article-body h3 {
-      margin-top: 2em;
-      color: var(--klar-blogpost-v47x-color-text);
-      font-size: clamp(1.35rem, 3vw, 2rem);
-      font-weight: 800;
-      line-height: 1.16;
-      letter-spacing: -0.045em;
-    }
-
-    .klar-blogpost-v47x-article-body p {
-      color: var(--klar-blogpost-v47x-color-text-muted);
-    }
-
-    .klar-blogpost-v47x-article-body a {
-      color: var(--klar-blogpost-v47x-color-primary-strong);
-      text-decoration: underline;
-      text-decoration-color: rgba(167, 139, 250, 0.42);
-      text-underline-offset: 0.25em;
-    }
-
-    .klar-blogpost-v47x-article-body strong {
-      color: var(--klar-blogpost-v47x-color-text);
-      font-weight: 780;
-    }
-
-    .klar-blogpost-v47x-article-body ul,
-    .klar-blogpost-v47x-article-body ol {
-      display: grid;
-      gap: 0.75rem;
-      padding-left: 1.2rem;
-      color: var(--klar-blogpost-v47x-color-text-muted);
-    }
-
-    .klar-blogpost-v47x-article-body li::marker {
-      color: var(--klar-blogpost-v47x-color-primary-strong);
-    }
-
-    .klar-blogpost-v47x-article-body blockquote {
-      position: relative;
-      margin: 2rem 0;
-      padding: 1.5rem;
-      color: var(--klar-blogpost-v47x-color-text);
-      font-size: clamp(1.25rem, 3vw, 1.8rem);
-      font-weight: 700;
-      line-height: 1.42;
-      letter-spacing: -0.035em;
-      background: var(--klar-blogpost-v47x-gradient-card);
-      border: 0.0625rem solid var(--klar-blogpost-v47x-color-line);
-      border-left: 0.25rem solid var(--klar-blogpost-v47x-color-primary-strong);
-      border-radius: var(--klar-blogpost-v47x-radius-xl);
-      box-shadow: var(--klar-blogpost-v47x-shadow-sm);
-    }
-
-    .klar-blogpost-v47x-article-body img {
-      width: 100%;
-      margin: 2rem 0;
-      border: 0.0625rem solid var(--klar-blogpost-v47x-color-line);
-      border-radius: var(--klar-blogpost-v47x-radius-xl);
-      box-shadow: var(--klar-blogpost-v47x-shadow-md);
-    }
-
-    .klar-blogpost-v47x-article-body code {
-      padding: 0.15rem 0.35rem;
-      color: var(--klar-blogpost-v47x-color-cyan);
-      font-family: var(--klar-blogpost-v47x-font-mono);
-      font-size: 0.9em;
-      background: rgba(34, 211, 238, 0.08);
-      border: 0.0625rem solid rgba(34, 211, 238, 0.16);
-      border-radius: 0.4rem;
-    }
-
-    .klar-blogpost-v47x-article-body pre {
-      overflow-x: auto;
-      padding: 1.25rem;
-      background: rgba(0, 0, 0, 0.28);
-      border: 0.0625rem solid var(--klar-blogpost-v47x-color-line);
-      border-radius: var(--klar-blogpost-v47x-radius-xl);
-    }
-
-    .klar-blogpost-v47x-article-body pre code {
-      padding: 0;
-      color: var(--klar-blogpost-v47x-color-text);
-      background: transparent;
-      border: 0;
-    }
-
-    .klar-blogpost-v47x-author-card {
-      margin-top: 3rem;
-      padding: 1.25rem;
-      background:
-        radial-gradient(circle at 16% 18%, rgba(139, 92, 246, 0.16), transparent 34%),
-        var(--klar-blogpost-v47x-gradient-card);
-      border: 0.0625rem solid var(--klar-blogpost-v47x-color-line);
-      border-radius: var(--klar-blogpost-v47x-radius-xl);
-      box-shadow: var(--klar-blogpost-v47x-shadow-sm);
-    }
-
-    .klar-blogpost-v47x-author-card-row {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .klar-blogpost-v47x-author-card-avatar {
-      display: grid;
-      width: 3.5rem;
-      height: 3.5rem;
-      place-items: center;
-      color: var(--klar-blogpost-v47x-color-white);
-      font-weight: 850;
-      background: linear-gradient(135deg, var(--klar-blogpost-v47x-color-primary), var(--klar-blogpost-v47x-color-cyan));
-      border-radius: var(--klar-blogpost-v47x-radius-full);
-    }
-
-    .klar-blogpost-v47x-author-card-label {
-      color: var(--klar-blogpost-v47x-color-primary-strong);
-      font-size: 0.75rem;
-      font-weight: 850;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-    }
-
-    .klar-blogpost-v47x-author-card-name {
-      margin-top: 0.25rem;
-      color: var(--klar-blogpost-v47x-color-text);
-      font-size: 1.125rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-    }
-
-    .klar-blogpost-v47x-author-card-bio {
-      margin-top: 0.5rem;
-      color: var(--klar-blogpost-v47x-color-text-muted);
-      line-height: 1.65;
-    }
-
-    .klar-blogpost-v47x-related-section {
-      padding: clamp(3rem, 7vw, 5rem) 0;
-      border-top: 0.0625rem solid var(--klar-blogpost-v47x-color-line);
-    }
-
-    .klar-blogpost-v47x-related-heading-row {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-bottom: 1.5rem;
-    }
-
-    .klar-blogpost-v47x-related-kicker {
-      color: var(--klar-blogpost-v47x-color-primary-strong);
-      font-size: 0.75rem;
+    .vector-blogpost-9q7-toc-label {
+      margin-bottom: var(--space-3);
+      color: var(--color-text);
+      font-size: var(--text-xs);
       font-weight: 850;
       letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
-    .klar-blogpost-v47x-related-title {
-      margin-top: 0.35rem;
-      color: var(--klar-blogpost-v47x-color-text);
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      font-weight: 830;
-      line-height: 1.08;
-      letter-spacing: -0.06em;
+    .vector-blogpost-9q7-toc-list {
+      display: grid;
+      gap: var(--space-2);
     }
 
-    .klar-blogpost-v47x-related-link {
+    .vector-blogpost-9q7-toc-link {
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+      transition: color var(--duration-fast) var(--ease-standard);
+    }
+
+    .vector-blogpost-9q7-toc-link:hover {
+      color: var(--color-text);
+    }
+
+    .vector-blogpost-9q7-article {
+      max-width: var(--vector-blogpost-9q7-prose-width);
+      min-width: 0;
+    }
+
+    .vector-blogpost-9q7-body {
+      color: var(--color-text-muted);
+      font-size: var(--text-md);
+      line-height: 1.78;
+    }
+
+    .vector-blogpost-9q7-body > * + * {
+      margin-top: var(--space-6);
+    }
+
+    .vector-blogpost-9q7-body h2,
+    .vector-blogpost-9q7-body h3 {
+      color: var(--color-text);
+      line-height: var(--leading-snug);
+      letter-spacing: -0.045em;
+    }
+
+    .vector-blogpost-9q7-body h2 {
+      margin-top: var(--space-12);
+      font-size: clamp(1.85rem, 4vw, 2.75rem);
+      font-weight: 850;
+    }
+
+    .vector-blogpost-9q7-body h3 {
+      margin-top: var(--space-8);
+      font-size: var(--text-2xl);
+      font-weight: 820;
+    }
+
+    .vector-blogpost-9q7-body p {
+      color: var(--color-text-muted);
+    }
+
+    .vector-blogpost-9q7-body a {
+      color: var(--color-primary-strong);
+      font-weight: 750;
+      text-decoration: underline;
+      text-decoration-color: rgba(167, 139, 250, 0.35);
+      text-underline-offset: 0.25em;
+    }
+
+    .vector-blogpost-9q7-body ul,
+    .vector-blogpost-9q7-body ol {
+      display: grid;
+      gap: var(--space-3);
+      padding-left: 1.2rem;
+    }
+
+    .vector-blogpost-9q7-body li {
+      color: var(--color-text-muted);
+      list-style: disc;
+    }
+
+    .vector-blogpost-9q7-body blockquote {
+      position: relative;
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      color: var(--color-text);
+      font-size: var(--text-xl);
+      font-weight: 700;
+      line-height: 1.45;
+      letter-spacing: -0.035em;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(139, 92, 246, 0.18), transparent 30%),
+        rgba(255, 255, 255, 0.05);
+      border: 0.0625rem solid var(--color-line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .vector-blogpost-9q7-body blockquote p {
+      color: var(--color-text);
+    }
+
+    .vector-blogpost-9q7-body code {
+      padding: 0.15rem 0.35rem;
+      color: var(--color-cyan);
+      font-family: var(--font-mono);
+      font-size: 0.9em;
+      background: rgba(34, 211, 238, 0.1);
+      border: 0.0625rem solid rgba(34, 211, 238, 0.16);
+      border-radius: var(--radius-sm);
+    }
+
+    .vector-blogpost-9q7-tags-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-10);
+      padding-top: var(--space-8);
+      border-top: 0.0625rem solid var(--color-line);
+    }
+
+    .vector-blogpost-9q7-tag {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      min-height: 2.75rem;
-      gap: 0.5rem;
-      padding: 0 1rem;
-      color: var(--klar-blogpost-v47x-color-text);
-      font-size: 0.875rem;
-      font-weight: 760;
-      background: rgba(255, 255, 255, 0.07);
-      border: 0.0625rem solid var(--klar-blogpost-v47x-color-line);
-      border-radius: var(--klar-blogpost-v47x-radius-full);
-      transition:
-        transform var(--klar-blogpost-v47x-duration-fast) var(--klar-blogpost-v47x-ease-standard),
-        background-color var(--klar-blogpost-v47x-duration-fast) var(--klar-blogpost-v47x-ease-standard),
-        border-color var(--klar-blogpost-v47x-duration-fast) var(--klar-blogpost-v47x-ease-standard);
+      min-height: 2rem;
+      padding: 0 var(--space-3);
+      color: var(--color-cyan);
+      font-size: var(--text-xs);
+      font-weight: 850;
+      background: var(--color-cyan-soft);
+      border: 0.0625rem solid rgba(34, 211, 238, 0.2);
+      border-radius: var(--radius-full);
     }
 
-    .klar-blogpost-v47x-related-link:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: var(--klar-blogpost-v47x-color-line-strong);
-      transform: translateY(-0.0625rem);
+    .vector-blogpost-9q7-related-zone {
+      padding: var(--space-16) 0 var(--space-20);
+      border-top: 0.0625rem solid var(--color-line);
     }
 
-    .klar-blogpost-v47x-related-list {
-      display: grid;
-      gap: 1rem;
+    .vector-blogpost-9q7-related-head {
+      max-width: 42rem;
+      margin-bottom: var(--space-8);
     }
 
-    .klar-blogpost-v47x-related-card {
-      position: relative;
-      display: grid;
-      gap: 1rem;
-      padding: 1rem;
-      overflow: hidden;
-      background: var(--klar-blogpost-v47x-gradient-card);
-      border: 0.0625rem solid var(--klar-blogpost-v47x-color-line);
-      border-radius: var(--klar-blogpost-v47x-radius-xl);
-      box-shadow: var(--klar-blogpost-v47x-shadow-sm);
-      transition:
-        transform var(--klar-blogpost-v47x-duration-base) var(--klar-blogpost-v47x-ease-standard),
-        border-color var(--klar-blogpost-v47x-duration-base) var(--klar-blogpost-v47x-ease-standard);
-    }
-
-    .klar-blogpost-v47x-related-card:hover {
-      border-color: var(--klar-blogpost-v47x-color-line-strong);
-      transform: translateY(-0.25rem);
-    }
-
-    .klar-blogpost-v47x-related-image {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-      background: linear-gradient(135deg, #151927, #07080d);
-      border-radius: var(--klar-blogpost-v47x-radius-lg);
-    }
-
-    .klar-blogpost-v47x-related-meta {
-      color: var(--klar-blogpost-v47x-color-primary-strong);
-      font-size: 0.75rem;
-      font-weight: 820;
-      letter-spacing: 0.08em;
+    .vector-blogpost-9q7-related-kicker {
+      margin-bottom: var(--space-3);
+      color: var(--color-primary-strong);
+      font-size: var(--text-xs);
+      font-weight: 850;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
-    .klar-blogpost-v47x-related-card-title {
-      margin-top: 0.5rem;
-      color: var(--klar-blogpost-v47x-color-text);
-      font-size: 1.25rem;
-      font-weight: 800;
-      line-height: 1.18;
+    .vector-blogpost-9q7-related-title {
+      color: var(--color-text);
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 850;
+      line-height: var(--leading-snug);
+      letter-spacing: -0.06em;
+    }
+
+    .vector-blogpost-9q7-related-grid {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .vector-blogpost-9q7-related-card {
+      display: grid;
+      overflow: hidden;
+      background: var(--gradient-card);
+      border: 0.0625rem solid var(--color-line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm);
+      transition:
+        transform var(--duration-base) var(--ease-standard),
+        border-color var(--duration-base) var(--ease-standard);
+    }
+
+    .vector-blogpost-9q7-related-card:hover {
+      border-color: var(--color-line-strong);
+      transform: translateY(-0.2rem);
+    }
+
+    .vector-blogpost-9q7-related-image {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      background: var(--color-bg-elevated);
+    }
+
+    .vector-blogpost-9q7-related-card-body {
+      display: grid;
+      gap: var(--space-3);
+      padding: var(--space-5);
+    }
+
+    .vector-blogpost-9q7-related-card-meta {
+      color: var(--color-primary-strong);
+      font-size: var(--text-xs);
+      font-weight: 850;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .vector-blogpost-9q7-related-card-title {
+      color: var(--color-text);
+      font-size: var(--text-xl);
+      font-weight: 850;
+      line-height: var(--leading-snug);
       letter-spacing: -0.04em;
     }
 
-    .klar-blogpost-v47x-related-excerpt {
-      margin-top: 0.6rem;
-      color: var(--klar-blogpost-v47x-color-text-muted);
-      font-size: 0.925rem;
-      line-height: 1.6;
+    .vector-blogpost-9q7-related-card-copy {
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
     }
 
-    .klar-blogpost-v47x-empty-related {
-      padding: 1.25rem;
-      color: var(--klar-blogpost-v47x-color-text-muted);
-      background: rgba(255, 255, 255, 0.045);
-      border: 0.0625rem solid var(--klar-blogpost-v47x-color-line);
-      border-radius: var(--klar-blogpost-v47x-radius-xl);
-    }
-
-    .klar-blogpost-v47x-footer {
-      padding: 3rem 0 2rem;
-      color: var(--klar-blogpost-v47x-color-text-soft);
-      border-top: 0.0625rem solid var(--klar-blogpost-v47x-color-line);
-    }
-
-    .klar-blogpost-v47x-footer-row {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      justify-content: space-between;
-      font-size: 0.875rem;
-    }
-
-    .klar-blogpost-v47x-footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .klar-blogpost-v47x-footer-anchor {
-      color: var(--klar-blogpost-v47x-color-text-muted);
-      transition: color var(--klar-blogpost-v47x-duration-fast) var(--klar-blogpost-v47x-ease-standard);
-    }
-
-    .klar-blogpost-v47x-footer-anchor:hover {
-      color: var(--klar-blogpost-v47x-color-text);
-    }
-
-    .klar-blogpost-v47x-reveal-motion {
-      opacity: 0;
-      transform: translateY(1.25rem);
-      transition:
-        opacity var(--klar-blogpost-v47x-duration-slow) var(--klar-blogpost-v47x-ease-spring),
-        transform var(--klar-blogpost-v47x-duration-slow) var(--klar-blogpost-v47x-ease-spring);
-    }
-
-    .klar-blogpost-v47x-state-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .klar-blogpost-v47x-delay-one {
-      transition-delay: 90ms;
-    }
-
-    .klar-blogpost-v47x-delay-two {
-      transition-delay: 180ms;
-    }
-
-    @media (min-width: 42rem) {
-      .klar-blogpost-v47x-author-card-row {
-        grid-template-columns: auto 1fr;
-        align-items: start;
-      }
-
-      .klar-blogpost-v47x-related-heading-row {
-        flex-direction: row;
-        align-items: end;
-      }
-
-      .klar-blogpost-v47x-footer-row {
-        flex-direction: row;
-        align-items: center;
-      }
+    .vector-blogpost-9q7-empty-related {
+      padding: var(--space-6);
+      color: var(--color-text-muted);
+      background: rgba(255, 255, 255, 0.04);
+      border: 0.0625rem solid var(--color-line);
+      border-radius: var(--radius-xl);
     }
 
     @media (min-width: 48rem) {
-      .klar-blogpost-v47x-header-links {
-        display: flex;
+      .vector-blogpost-9q7-hero {
+        padding-top: var(--space-20);
       }
 
-      .klar-blogpost-v47x-related-list {
+      .vector-blogpost-9q7-meta-panel {
+        grid-template-columns: 1fr;
+        max-width: 24rem;
+      }
+
+      .vector-blogpost-9q7-related-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
 
-    @media (min-width: 68rem) {
-      .klar-blogpost-v47x-wide-layout {
-        width: min(calc(100% - 3rem), var(--klar-blogpost-v47x-size-wide));
+    @media (min-width: 62rem) {
+      .vector-blogpost-9q7-hero-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.34fr);
+        gap: var(--space-12);
       }
 
-      .klar-blogpost-v47x-reading-layout {
-        width: min(calc(100% - 3rem), var(--klar-blogpost-v47x-size-reading));
+      .vector-blogpost-9q7-content-grid {
+        grid-template-columns: var(--vector-blogpost-9q7-aside-width) minmax(0, var(--vector-blogpost-9q7-prose-width));
+        justify-content: center;
+        gap: var(--space-12);
       }
 
-      .klar-blogpost-v47x-article-grid {
-        grid-template-columns: minmax(0, 1fr) 13rem;
-        align-items: start;
-      }
-
-      .klar-blogpost-v47x-sidebar-panel {
+      .vector-blogpost-9q7-toc {
         position: sticky;
-        top: 6rem;
-        display: grid;
-        gap: 1rem;
-        padding: 1rem;
-        color: var(--klar-blogpost-v47x-color-text-soft);
-        font-size: 0.8125rem;
-        background: rgba(255, 255, 255, 0.045);
-        border: 0.0625rem solid var(--klar-blogpost-v47x-color-line);
-        border-radius: var(--klar-blogpost-v47x-radius-lg);
-      }
-
-      .klar-blogpost-v47x-sidebar-label {
-        color: var(--klar-blogpost-v47x-color-primary-strong);
-        font-size: 0.7rem;
-        font-weight: 850;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-      }
-
-      .klar-blogpost-v47x-sidebar-rule {
-        height: 0.0625rem;
-        background: var(--klar-blogpost-v47x-color-line);
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 1ms !important;
-        animation-duration: 1ms !important;
-        animation-iteration-count: 1 !important;
-      }
-
-      .klar-blogpost-v47x-reveal-motion {
-        opacity: 1;
-        transform: none;
+        top: calc(var(--header-height) + var(--space-6));
+        display: block;
       }
     }
   </style>
 </head>
 <body>
-  <a class="klar-blogpost-v47x-skip-link" href="#klar-blogpost-v47x-main">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="klar-blogpost-v47x-reading-progress-track" aria-hidden="true">
-    <div class="klar-blogpost-v47x-reading-progress-bar" data-klar-blogpost-v47x-progress></div>
-  </div>
-
-  <div class="klar-blogpost-v47x-page-shell" id="klar-blogpost-v47x-top">
-    <header class="klar-blogpost-v47x-site-header" data-klar-blogpost-v47x-header>
-      <div class="klar-blogpost-v47x-wide-layout klar-blogpost-v47x-header-row">
-        <a class="klar-blogpost-v47x-brand-link" href="/" aria-label="Vector home">
-          <span class="klar-blogpost-v47x-logo-mark" aria-hidden="true">
+  <div class="page-shell" id="top">
+    <header class="site-header" data-site-header="">
+      <div class="container-wide header-shell">
+        <a class="brand" href="#top" aria-label="Vector home">
+          <span class="logo-mark" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none">
-              <path d="M5 18.2L10.7 5.8c.5-1.1 2.1-1.1 2.6 0L19 18.2c.4.9-.6 1.8-1.4 1.2l-5-3.5a1 1 0 0 0-1.2 0l-5 3.5c-.8.6-1.8-.3-1.4-1.2Z" fill="currentColor"/>
+              <path d="M5 18.2L10.7 5.8c.5-1.1 2.1-1.1 2.6 0L19 18.2c.4.9-.6 1.8-1.4 1.2l-5-3.5a1 1 0 0 0-1.2 0l-5 3.5c-.8.6-1.8-.3-1.4-1.2Z" fill="currentColor"></path>
             </svg>
           </span>
-          <span>Vector Journal</span>
+          <span>Vector</span>
         </a>
 
-        <nav class="klar-blogpost-v47x-header-links" aria-label="Article navigation">
-          <a class="klar-blogpost-v47x-header-anchor" href="/">Home</a>
-          <a class="klar-blogpost-v47x-header-anchor" href="/blog/">Journal</a>
-          <a class="klar-blogpost-v47x-header-anchor" href="#klar-blogpost-v47x-related">More posts</a>
+        <nav class="primary-nav" id="site-navigation" aria-label="Primary navigation" data-nav="">
+          <ul class="nav-list"><li><a class="nav-link is-active" href="#top" aria-current="page">Home</a></li>
+<li><a class="nav-link" href="#features">Features</a></li>
+<li><a class="nav-link" href="#benefits">Benefits</a></li>
+<li><a class="nav-link" href="#pricing">Pricing</a></li>
+<li><a class="nav-link" href="#faq">FAQ</a></li>
+<li><a class="nav-link" href="page-types/blog-post.html">Blog</a></li></ul>
         </nav>
 
-        <button class="klar-blogpost-v47x-share-button" type="button" data-klar-blogpost-v47x-share>
-          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M7.5 6.5L10 4m0 0 2.5 2.5M10 4v8M5 10.5v3.8c0 .9.7 1.7 1.7 1.7h6.6c1 0 1.7-.8 1.7-1.7v-3.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span data-klar-blogpost-v47x-share-label>Share</span>
+        <div class="header-actions">
+          <a class="btn btn-ghost" href="#faq">Sign in</a>
+          <a class="btn btn-primary" href="#pricing">Start free</a>
+        </div>
+
+        <button class="nav-toggle" type="button" aria-label="Open navigation" aria-controls="site-navigation" aria-expanded="false" data-nav-toggle="">
+          <span class="nav-toggle-lines" aria-hidden="true"></span>
         </button>
       </div>
     </header>
 
-    <main id="klar-blogpost-v47x-main">
+    <main id="main" class="vector-blogpost-9q7-shell">
       <article>
-        <header class="klar-blogpost-v47x-post-hero">
-          <div class="klar-blogpost-v47x-reading-layout klar-blogpost-v47x-reveal-motion">
-            <div class="klar-blogpost-v47x-post-kicker-row">
-              <span class="klar-blogpost-v47x-post-category">Strategy</span>
-              <span class="klar-blogpost-v47x-post-read-time">8 min read</span>
-            </div>
-
-            <h1 class="klar-blogpost-v47x-post-title">
-              Building a calmer operating model for <span class="klar-blogpost-v47x-post-title-emphasis">high-velocity teams.</span>
-            </h1>
-
-            <p class="klar-blogpost-v47x-post-excerpt">
-              The best product organizations are replacing noisy coordination rituals with intelligent systems that preserve context, surface risk, and help teams choose the work that actually matters.
-            </p>
-
-            <div class="klar-blogpost-v47x-post-byline">
-              <span class="klar-blogpost-v47x-author-cluster">
-                <span class="klar-blogpost-v47x-author-avatar" aria-hidden="true">SC</span>
-                <span class="klar-blogpost-v47x-author-name">Sofia Chen</span>
-              </span>
-              <time class="klar-blogpost-v47x-post-date" datetime="2026-05-12">May 12, 2026</time>
-            </div>
-          </div>
-
-          <div class="klar-blogpost-v47x-cover-frame klar-blogpost-v47x-reveal-motion klar-blogpost-v47x-delay-one">
-            <img class="klar-blogpost-v47x-cover-image" src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1800&q=86" alt="Product team reviewing an execution dashboard in a dark workspace">
-          </div>
-        </header>
-
-        <div class="klar-blogpost-v47x-article-shell">
-          <div class="klar-blogpost-v47x-reading-layout klar-blogpost-v47x-article-grid">
-            <div>
-              <div class="klar-blogpost-v47x-article-body klar-blogpost-v47x-reveal-motion">
-                <p>
-                  Modern teams are surrounded by signals: customer calls, support tickets, engineering updates, revenue risk, product intuition, and executive strategy. The problem is no longer access to information. The problem is deciding which signals deserve attention before momentum turns into drift.
-                </p>
-
-                <p>
-                  A calmer operating model starts by treating execution as a shared intelligence layer instead of a sequence of meetings. When context is captured continuously, teams can spend less time reconstructing what happened and more time choosing what to do next.
-                </p>
-
-                <h2>From status reporting to decision quality</h2>
-
-                <p>
-                  Most organizations use status reporting as a proxy for control. Teams prepare updates, leaders ask for confidence, and everyone leaves with a slightly different interpretation of reality. The result is coordination work that feels productive but rarely improves the quality of the next decision.
-                </p>
-
-                <blockquote>
-                  The highest-leverage operating systems do not create more updates. They make the next important decision easier to see.
-                </blockquote>
-
-                <p>
-                  The shift is subtle but powerful. Instead of asking teams to summarize everything manually, the system connects work to outcomes, highlights assumptions, and shows where dependency risk is building. Leadership gets visibility without interrupting makers.
-                </p>
-
-                <h2>What high-velocity teams need</h2>
-
-                <ul>
-                  <li><strong>Persistent context</strong> that explains why a bet exists, not just who owns it.</li>
-                  <li><strong>Signal-weighted prioritization</strong> across customer demand, effort, revenue impact, and strategic urgency.</li>
-                  <li><strong>Clear decision records</strong> that make tradeoffs explicit and reusable.</li>
-                  <li><strong>Automated executive views</strong> that update as the work changes.</li>
-                </ul>
-
-                <p>
-                  When these pieces live together, teams do not need to choose between autonomy and alignment. They can move quickly while staying anchored to the same operating picture.
-                </p>
-
-                <h2>The next layer of execution</h2>
-
-                <p>
-                  AI-native workflows are not about replacing judgment. They are about protecting the attention required for judgment. The best tools reduce the cost of context, help teams notice weak signals early, and turn fragmented activity into focused decisions.
-                </p>
-
-                <p>
-                  That is the future of execution infrastructure: less noise, more clarity, and a calmer path from strategy to shipped work.
+        <header class="vector-blogpost-9q7-hero" aria-labelledby="vector-blogpost-9q7-title">
+          <div class="container-wide">
+            <div class="vector-blogpost-9q7-hero-grid">
+              <div>
+                <p class="vector-blogpost-9q7-category">Product Strategy</p>
+                <h1 class="vector-blogpost-9q7-title" id="vector-blogpost-9q7-title">How AI-native teams turn signals into sharper roadmap bets</h1>
+                <p class="vector-blogpost-9q7-lead">
+                  A practical guide to replacing fragmented feedback, status meetings, and instinct-led prioritization with a calmer operating system for product decisions.
                 </p>
               </div>
 
-              <aside class="klar-blogpost-v47x-author-card klar-blogpost-v47x-reveal-motion klar-blogpost-v47x-delay-two" aria-label="Author biography">
-                <div class="klar-blogpost-v47x-author-card-row">
-                  <span class="klar-blogpost-v47x-author-card-avatar" aria-hidden="true">SC</span>
+              <aside class="vector-blogpost-9q7-meta-panel" aria-label="Article information">
+                <div class="vector-blogpost-9q7-author-row">
+                  <span class="vector-blogpost-9q7-author-avatar" aria-hidden="true">LN</span>
                   <div>
-                    <p class="klar-blogpost-v47x-author-card-label">Written by</p>
-                    <p class="klar-blogpost-v47x-author-card-name">Sofia Chen</p>
-                    <p class="klar-blogpost-v47x-author-card-bio">
-                      Sofia writes about product strategy, team operations, and AI-native workflows for ambitious software organizations.
-                    </p>
+                    <p class="vector-blogpost-9q7-author-name">Leah Nakamura</p>
+                    <p class="vector-blogpost-9q7-author-role">Head of Product Systems</p>
                   </div>
+                </div>
+                <div class="vector-blogpost-9q7-meta-list">
+                  <time class="vector-blogpost-9q7-meta-pill vector-blogpost-9q7-published-at" datetime="2026-03-18">March 18, 2026</time>
+                  <span class="vector-blogpost-9q7-meta-pill vector-blogpost-9q7-read-time">8 min read</span>
                 </div>
               </aside>
             </div>
 
-            <aside class="klar-blogpost-v47x-sidebar-panel" aria-label="Article details">
-              <p class="klar-blogpost-v47x-sidebar-label">Article</p>
-              <p class="klar-blogpost-v47x-post-read-time">8 min read</p>
-              <div class="klar-blogpost-v47x-sidebar-rule"></div>
-              <p class="klar-blogpost-v47x-sidebar-label">Category</p>
-              <p class="klar-blogpost-v47x-post-category">Strategy</p>
-              <div class="klar-blogpost-v47x-sidebar-rule"></div>
-              <p>Share this article with a team that is ready to trade coordination noise for execution clarity.</p>
-            </aside>
+            <figure class="vector-blogpost-9q7-figure">
+              <img class="vector-blogpost-9q7-hero-image" src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&amp;fit=crop&amp;w=1800&amp;q=82" alt="Product team reviewing roadmap signals on a large screen">
+              <figcaption class="vector-blogpost-9q7-caption">A modern execution system connects customer evidence, strategic bets, and delivery progress in one shared view.</figcaption>
+            </figure>
           </div>
-        </div>
+        </header>
+
+        <section class="vector-blogpost-9q7-content-zone">
+          <div class="container-wide vector-blogpost-9q7-content-grid">
+            <aside class="vector-blogpost-9q7-toc" aria-label="Article sections">
+              <p class="vector-blogpost-9q7-toc-label">In this article</p>
+              <nav>
+                <ul class="vector-blogpost-9q7-toc-list">
+                  <li><a class="vector-blogpost-9q7-toc-link" href="#vector-blogpost-9q7-title">Overview</a></li>
+                  <li><a class="vector-blogpost-9q7-toc-link" href="#vector-blogpost-9q7-signals">Signal quality</a></li>
+                  <li><a class="vector-blogpost-9q7-toc-link" href="#vector-blogpost-9q7-decisions">Decision records</a></li>
+                  <li><a class="vector-blogpost-9q7-toc-link" href="#vector-blogpost-9q7-operating">Operating rhythm</a></li>
+                </ul>
+              </nav>
+            </aside>
+
+            <div class="vector-blogpost-9q7-article">
+              <div class="vector-blogpost-9q7-body">
+                <p>
+                  The fastest product teams rarely suffer from a lack of information. They suffer from too many disconnected signals: user interviews, support tickets, sales notes, analytics dashboards, roadmap comments, and executive asks all competing for attention.
+                </p>
+
+                <p>
+                  AI-native execution is not about letting a model choose your roadmap. It is about creating a disciplined system that keeps evidence close to decisions, makes tradeoffs visible, and helps teams notice risk before it becomes expensive.
+                </p>
+
+                <h2 id="vector-blogpost-9q7-signals">Start with signal quality, not signal volume</h2>
+                <p>
+                  A useful signal has context. Who raised it? What customer segment does it represent? Is it tied to revenue, retention, activation, support volume, or strategic positioning? Without this context, teams end up prioritizing the loudest request rather than the highest-leverage bet.
+                </p>
+
+                <ul>
+                  <li>Group feedback by customer outcome rather than by source.</li>
+                  <li>Attach confidence, reach, effort, and revenue exposure to every major initiative.</li>
+                  <li>Keep contradictory evidence visible so decisions do not become one-sided narratives.</li>
+                </ul>
+
+                <blockquote>
+                  <p>Great prioritization is less about ranking a backlog and more about preserving the reasoning behind every meaningful tradeoff.</p>
+                </blockquote>
+
+                <h2 id="vector-blogpost-9q7-decisions">Create decision records that travel with the work</h2>
+                <p>
+                  When priorities shift, teams need to understand why. A decision record should capture the short version: the options considered, the evidence used, the tradeoff accepted, and the assumption that should be revisited later.
+                </p>
+
+                <p>
+                  This gives product, engineering, design, sales, and leadership a shared operating memory. New teammates can understand the path that led to a release, and leaders can review strategy without interrupting builders for another status meeting.
+                </p>
+
+                <h2 id="vector-blogpost-9q7-operating">Build a calmer operating rhythm</h2>
+                <p>
+                  The goal is not more process. The goal is fewer surprises. With the right execution layer, roadmap reviews become shorter, weekly updates become clearer, and teams spend more time shipping work that compounds.
+                </p>
+
+                <p>
+                  Vector helps teams connect strategy, signals, decisions, and delivery progress into one precise workspace designed for modern SaaS organizations.
+                </p>
+              </div>
+
+              <div class="vector-blogpost-9q7-tags-wrap" id="vector-blogpost-9q7-tags"></div>
+              <template data-for="vector-blogpost-9q7-tags" data-query="currentPage()">
+                {% for tag in page.content.tags %}
+                  <span class="vector-blogpost-9q7-tag">{{ tag }}</span>
+                {% else %}
+                  <span class="vector-blogpost-9q7-tag">ai-workflows</span>
+                  <span class="vector-blogpost-9q7-tag">product-strategy</span>
+                  <span class="vector-blogpost-9q7-tag">execution</span>
+                {% endfor %}
+              </template>
+            </div>
+          </div>
+        </section>
       </article>
 
-      <section class="klar-blogpost-v47x-related-section" id="klar-blogpost-v47x-related" aria-labelledby="klar-blogpost-v47x-related-heading">
-        <div class="klar-blogpost-v47x-wide-layout">
-          <div class="klar-blogpost-v47x-related-heading-row">
-            <div>
-              <p class="klar-blogpost-v47x-related-kicker">Keep reading</p>
-              <h2 class="klar-blogpost-v47x-related-title" id="klar-blogpost-v47x-related-heading">More from the journal</h2>
-            </div>
-            <a class="klar-blogpost-v47x-related-link" href="/blog/">View all posts</a>
+      <section class="vector-blogpost-9q7-related-zone" aria-labelledby="vector-blogpost-9q7-related-title">
+        <div class="container-wide">
+          <div class="vector-blogpost-9q7-related-head">
+            <p class="vector-blogpost-9q7-related-kicker">More from Vector</p>
+            <h2 class="vector-blogpost-9q7-related-title" id="vector-blogpost-9q7-related-title">Related execution insights</h2>
           </div>
 
-          <div class="klar-blogpost-v47x-related-list" id="klar-blogpost-v47x-related-list"></div>
-          <template data-for="klar-blogpost-v47x-related-list" data-query="list('blog-post', { published: true, order: 'published_at:desc', limit: 4 })">
-            {% assign rendered_count = 0 %}
+          <div class="vector-blogpost-9q7-related-grid" id="vector-blogpost-9q7-related"></div>
+          <template data-for="vector-blogpost-9q7-related" data-query="list('blog-post', { published: true, order: 'published_at:desc', limit: 4 })">
+            {% assign rendered = 0 %}
             {% for item in items %}
-              {% if item.filePath != page.filePath and rendered_count < 3 %}
-                {% assign rendered_count = rendered_count | plus: 1 %}
-                <a class="klar-blogpost-v47x-related-card" href="{{ item.url }}">
-                  {% if item.content.coverImage.src %}
-                    <img class="klar-blogpost-v47x-related-image" src="{{ item.content.coverImage.src }}" alt="{{ item.content.coverImage.alt }}">
+              {% if item.filePath != page.filePath %}
+                <a class="vector-blogpost-9q7-related-card" href="{{ item.url }}">
+                  {% if item.content.image.src %}
+                    <img class="vector-blogpost-9q7-related-image" src="{{ item.content.image.src }}" alt="{{ item.content.image.alt }}">
                   {% endif %}
-                  <div>
-                    <p class="klar-blogpost-v47x-related-meta">{{ item.content.category }}</p>
-                    <h3 class="klar-blogpost-v47x-related-card-title">{{ item.content.title }}</h3>
-                    <p class="klar-blogpost-v47x-related-excerpt">{{ item.content.excerpt }}</p>
-                  </div>
+                  <span class="vector-blogpost-9q7-related-card-body">
+                    <span class="vector-blogpost-9q7-related-card-meta">{{ item.content.category }}</span>
+                    <span class="vector-blogpost-9q7-related-card-title">{{ item.content.title }}</span>
+                    <span class="vector-blogpost-9q7-related-card-copy">{{ item.content.lead }}</span>
+                  </span>
                 </a>
+                {% assign rendered = rendered | plus: 1 %}
               {% endif %}
-            {% else %}
-              <p class="klar-blogpost-v47x-empty-related">New journal articles will appear here as soon as they are published.</p>
             {% endfor %}
+            {% if rendered == 0 %}
+              <p class="vector-blogpost-9q7-empty-related">Publish more blog posts to show related articles here.</p>
+            {% endif %}
           </template>
         </div>
       </section>
     </main>
 
-    <footer class="klar-blogpost-v47x-footer">
-      <div class="klar-blogpost-v47x-wide-layout klar-blogpost-v47x-footer-row">
-        <p>© 2026 Vector Systems. All rights reserved.</p>
-        <nav class="klar-blogpost-v47x-footer-links" aria-label="Footer links">
-          <a class="klar-blogpost-v47x-footer-anchor" href="/">Home</a>
-          <a class="klar-blogpost-v47x-footer-anchor" href="/blog/">Journal</a>
-          <a class="klar-blogpost-v47x-footer-anchor" href="/#pricing">Pricing</a>
-          <a class="klar-blogpost-v47x-footer-anchor" href="/#faq">FAQ</a>
-        </nav>
+    <footer class="site-footer">
+      <div class="container-wide">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="brand" href="#top" aria-label="Vector home">
+              <span class="logo-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M5 18.2L10.7 5.8c.5-1.1 2.1-1.1 2.6 0L19 18.2c.4.9-.6 1.8-1.4 1.2l-5-3.5a1 1 0 0 0-1.2 0l-5 3.5c-.8.6-1.8-.3-1.4-1.2Z" fill="currentColor"></path>
+                </svg>
+              </span>
+              <span>Vector</span>
+            </a>
+            <p>
+              A precise, AI-native execution workspace for modern SaaS teams that want to ship with confidence.
+            </p>
+          </div>
+
+          <div class="footer-links">
+            <div class="footer-column">
+              <h2>Product</h2>
+              <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h3>Company</h3>
+              <ul>
+                <li><a href="#testimonials">Customers</a></li>
+                <li><a href="#cta">Get started</a></li>
+                <li><a href="#top">Security</a></li>
+                <li><a href="#top">Status</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h3>Resources</h3>
+              <ul>
+                <li><a href="#features">Product tour</a></li>
+                <li><a href="#benefits">Use cases</a></li>
+                <li><a href="#faq">Support</a></li>
+                <li><a href="#top">Privacy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 Vector Systems. All rights reserved.</p>
+          <div class="social-links" aria-label="Social links">
+            <a class="social-link" href="#top" aria-label="Vector on X">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 5l12 14M18 5L6 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+            </a>
+            <a class="social-link" href="#top" aria-label="Vector community">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M8 18c-2.5 0-4-1.7-4-4.1C4 10 7 7 12 7s8 3 8 6.9c0 2.4-1.5 4.1-4 4.1M9 14h.01M15 14h.01M10 18l-1 3M14 18l1 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+            </a>
+            <a class="social-link" href="#top" aria-label="Vector on GitHub">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M9 19c-4 1.2-4-2-5-2.5M15 22v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6A4.6 4.6 0 0 0 18.7 7a4.3 4.3 0 0 0-.1-3.3s-1.1-.3-3.6 1.3a12.4 12.4 0 0 0-6 0C6.5 3.4 5.4 3.7 5.4 3.7A4.3 4.3 0 0 0 5.3 7 4.6 4.6 0 0 0 4 10.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   </div>
-
-  <script>
-    (() => {
-      "use strict";
-
-      const klarBlogpostV47xDoc = document;
-      const klarBlogpostV47xWindow = window;
-      const klarBlogpostV47xHeader = klarBlogpostV47xDoc.querySelector("[data-klar-blogpost-v47x-header]");
-      const klarBlogpostV47xProgress = klarBlogpostV47xDoc.querySelector("[data-klar-blogpost-v47x-progress]");
-      const klarBlogpostV47xShare = klarBlogpostV47xDoc.querySelector("[data-klar-blogpost-v47x-share]");
-      const klarBlogpostV47xShareLabel = klarBlogpostV47xDoc.querySelector("[data-klar-blogpost-v47x-share-label]");
-      const klarBlogpostV47xPrefersReducedMotion = klarBlogpostV47xWindow.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-      const klarBlogpostV47xSetHeaderState = () => {
-        if (!klarBlogpostV47xHeader) return;
-        klarBlogpostV47xHeader.classList.toggle("klar-blogpost-v47x-state-scrolled", klarBlogpostV47xWindow.scrollY > 8);
-      };
-
-      const klarBlogpostV47xSetReadingProgress = () => {
-        if (!klarBlogpostV47xProgress) return;
-
-        const klarBlogpostV47xScrollable = klarBlogpostV47xDoc.documentElement.scrollHeight - klarBlogpostV47xWindow.innerHeight;
-        const klarBlogpostV47xRatio = klarBlogpostV47xScrollable > 0 ? klarBlogpostV47xWindow.scrollY / klarBlogpostV47xScrollable : 0;
-        const klarBlogpostV47xPercent = Math.min(100, Math.max(0, klarBlogpostV47xRatio * 100));
-
-        klarBlogpostV47xProgress.style.width = `${klarBlogpostV47xPercent}%`;
-      };
-
-      const klarBlogpostV47xSetupReveal = () => {
-        const klarBlogpostV47xRevealItems = Array.from(klarBlogpostV47xDoc.querySelectorAll(".klar-blogpost-v47x-reveal-motion"));
-
-        if (!klarBlogpostV47xRevealItems.length) return;
-
-        if (klarBlogpostV47xPrefersReducedMotion || !("IntersectionObserver" in klarBlogpostV47xWindow)) {
-          klarBlogpostV47xRevealItems.forEach((klarBlogpostV47xItem) => {
-            klarBlogpostV47xItem.classList.add("klar-blogpost-v47x-state-visible");
-          });
-          return;
-        }
-
-        const klarBlogpostV47xObserver = new IntersectionObserver(
-          (klarBlogpostV47xEntries, klarBlogpostV47xRevealObserver) => {
-            klarBlogpostV47xEntries.forEach((klarBlogpostV47xEntry) => {
-              if (!klarBlogpostV47xEntry.isIntersecting) return;
-              klarBlogpostV47xEntry.target.classList.add("klar-blogpost-v47x-state-visible");
-              klarBlogpostV47xRevealObserver.unobserve(klarBlogpostV47xEntry.target);
-            });
-          },
-          {
-            root: null,
-            threshold: 0.14,
-            rootMargin: "0px 0px -8% 0px"
-          }
-        );
-
-        klarBlogpostV47xRevealItems.forEach((klarBlogpostV47xItem) => {
-          klarBlogpostV47xObserver.observe(klarBlogpostV47xItem);
-        });
-      };
-
-      const klarBlogpostV47xSetupShare = () => {
-        if (!klarBlogpostV47xShare) return;
-
-        klarBlogpostV47xShare.addEventListener("click", async () => {
-          const klarBlogpostV47xShareData = {
-            title: klarBlogpostV47xDoc.title,
-            url: klarBlogpostV47xWindow.location.href
-          };
-
-          try {
-            if (navigator.share) {
-              await navigator.share(klarBlogpostV47xShareData);
-            } else if (navigator.clipboard) {
-              await navigator.clipboard.writeText(klarBlogpostV47xWindow.location.href);
-              if (klarBlogpostV47xShareLabel) {
-                klarBlogpostV47xShareLabel.textContent = "Copied";
-                setTimeout(() => {
-                  klarBlogpostV47xShareLabel.textContent = "Share";
-                }, 1600);
-              }
-            }
-          } catch (klarBlogpostV47xError) {
-            if (klarBlogpostV47xShareLabel) {
-              klarBlogpostV47xShareLabel.textContent = "Share";
-            }
-          }
-        });
-      };
-
-      let klarBlogpostV47xTicking = false;
-
-      const klarBlogpostV47xOnScroll = () => {
-        if (klarBlogpostV47xTicking) return;
-
-        klarBlogpostV47xWindow.requestAnimationFrame(() => {
-          klarBlogpostV47xSetHeaderState();
-          klarBlogpostV47xSetReadingProgress();
-          klarBlogpostV47xTicking = false;
-        });
-
-        klarBlogpostV47xTicking = true;
-      };
-
-      klarBlogpostV47xSetupReveal();
-      klarBlogpostV47xSetupShare();
-      klarBlogpostV47xSetHeaderState();
-      klarBlogpostV47xSetReadingProgress();
-
-      klarBlogpostV47xWindow.addEventListener("scroll", klarBlogpostV47xOnScroll, { passive: true });
-      klarBlogpostV47xWindow.addEventListener("resize", klarBlogpostV47xSetReadingProgress);
-    })();
-  </script>
-</body>
+  </body>
 </html>
