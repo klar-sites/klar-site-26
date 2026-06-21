@@ -620,62 +620,8 @@
     </style>
   </head>
   <body>
-    <article class="vblog-2026-root" id="vblog-2026-top">
-
-      <!-- Top bar -->
-      <header class="vblog-2026-topbar">
-        <div class="vblog-2026-container-wide vblog-2026-topbar-shell">
-          <a class="vblog-2026-brand" href="/" aria-label="Vector home">
-            <span class="vblog-2026-logo-mark" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M5 18.2L10.7 5.8c.5-1.1 2.1-1.1 2.6 0L19 18.2c.4.9-.6 1.8-1.4 1.2l-5-3.5a1 1 0 0 0-1.2 0l-5 3.5c-.8.6-1.8-.3-1.4-1.2Z" fill="currentColor"></path>
-              </svg>
-            </span>
-            <span>Vector</span>
-          </a>
-          <a class="vblog-2026-back" href="/blog">
-            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
-              <path d="M12.5 4.5L7 10l5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-            All articles
-          </a>
-        </div>
-      </header>
-
-      <!-- Article — rendered from this page's own content via Klar currentPage() -->
-      <div id="vblog-2026-article">
-        <header class="vblog-2026-article-head">s
-          <div class="vblog-2026-container">
-            <div class="vblog-2026-meta-row vblog-2026-reveal">
-              
-              
-              
-            </div>
-            <h1 class="vblog-2026-title vblog-2026-reveal">fsafsadf</h1>
-            <p class="vblog-2026-lead vblog-2026-reveal">asdfasdf</p>
-            
-            <div class="vblog-2026-byline vblog-2026-reveal">
-              <span class="vblog-2026-author-avatar" aria-hidden="true"></span>
-              <div>
-                <p class="vblog-2026-byline-name"></p>
-                <p class="vblog-2026-byline-role"></p>
-              </div>
-            </div>
-          </div>
-        </header>
-
-        
-
-        <div class="vblog-2026-container">
-          <div class="vblog-2026-body vblog-2026-reveal">asdfasdf</div>
-
-          
-
-          
-        </div>
-      </div>
-      <template data-for="vblog-2026-article" data-query="currentPage()">
-        <header class="vblog-2026-article-head">s
+    <template data-for="vblog-2026-article" data-query="currentPage()">
+        <header class="vblog-2026-article-head">
           <div class="vblog-2026-container">
             <div class="vblog-2026-meta-row vblog-2026-reveal">
               {% if page.content.category %}<span class="vblog-2026-category">{{ page.content.category }}</span>{% endif %}
@@ -721,6 +667,66 @@
           {% endif %}
         </div>
       </template>
+    <article class="vblog-2026-root" id="vblog-2026-top">
+
+      <!-- Top bar -->
+      <header class="vblog-2026-topbar">
+        <div class="vblog-2026-container-wide vblog-2026-topbar-shell">
+          <a class="vblog-2026-brand" href="/" aria-label="Vector home">
+            <span class="vblog-2026-logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M5 18.2L10.7 5.8c.5-1.1 2.1-1.1 2.6 0L19 18.2c.4.9-.6 1.8-1.4 1.2l-5-3.5a1 1 0 0 0-1.2 0l-5 3.5c-.8.6-1.8-.3-1.4-1.2Z" fill="currentColor"></path>
+              </svg>
+            </span>
+            <span>Vector</span>
+          </a>
+          <a class="vblog-2026-back" href="/blog">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M12.5 4.5L7 10l5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            All articles
+          </a>
+        </div>
+      </header>
+      
+
+      <!-- Article — rendered from this page's own content via Klar currentPage() -->
+      <div id="vblog-2026-article">
+        <header class="vblog-2026-article-head">
+          <div class="vblog-2026-container">
+            <div class="vblog-2026-meta-row vblog-2026-reveal">
+              
+              
+              
+            </div>
+            <h1 class="vblog-2026-title vblog-2026-reveal">fsafsadf</h1>
+            <p class="vblog-2026-lead vblog-2026-reveal">asdfasdf</p>
+            
+            <div class="vblog-2026-byline vblog-2026-reveal">
+              <span class="vblog-2026-author-avatar" aria-hidden="true"></span>
+              <div>
+                <p class="vblog-2026-byline-name"></p>
+                <p class="vblog-2026-byline-role"></p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        
+
+        <div class="vblog-2026-container">
+          <div class="vblog-2026-body vblog-2026-reveal">asdfasdf</div>
+
+          
+          <div class="vblog-2026-tags">
+            <span class="vblog-2026-tag">Test</span>
+          </div>
+          
+
+          
+        </div>
+      </div>
+      
 
       <!-- Related posts -->
       <section class="vblog-2026-related">
@@ -744,7 +750,8 @@
                 {% if item.content.category %}<span class="vblog-2026-related-card-cat">{{ item.content.category }}</span>{% endif %}
                 <h3 class="vblog-2026-related-card-title">{{ item.content.title }}</h3>
                 {% if item.content.publishedAt %}<p class="vblog-2026-related-card-date">
-                  {{ item.content.publishedAt | localeDate: 'en-US' }}</p>{% endif %}
+                  {{ item.content.publishedAt | localeDate: 'en-US' }}
+                </p>{% endif %}
               </div>
             </a>
             {% endif %}
