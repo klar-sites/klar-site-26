@@ -1,5 +1,35 @@
 {
-  "pageTypes": [],
+  "pageTypes": [
+    {
+      "name": "blog-post",
+      "editableElements": ".vblog-2026__title:field(title:Title, name:title, type:string, order:1, section:Content, sectionOrder:1),\n:field(title:Lead, name:lead, type:text, order:2, section:Content, options(layout:editor)),\n.vblog-2026__hero img:field(title:'Hero image', name:image, type:image, order:3, section:Content),\n.vblog-2026__body:field(title:Body, name:text, type:array, order:4, section:Content, options(layout:blocks)),\n.vblog-2026__category:field(title:Category, name:category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n:field(title:Author, name:author, type:string, col:6, section:Meta, options(vocab:authors)),\n:field(title:'Author role', name:authorRole, type:string, col:6, section:Meta),\n:field(title:Initial, name:initial, type:string, col:6, section:Meta),\n.vblog-2026__readtime:field(title:'Read time', name:readTime, type:string, col:6, section:Meta),\n:field(title:'Created at', name:createdAt, type:string, format:date, default:now, col:6, section:Meta, options(dateFormat:'MMMM D, YYYY')),\n:field(title:Tags, name:tags, type:array, section:Meta, options(vocab:tags)),\n.vblog-2026__related:readonly",
+      "content": {
+        "lead": "Det kommer att bli riktigt bra det här",
+        "title": "Det här är den bästa bloggen jag har sett",
+        "body": "body",
+        "tags": [
+          "Test"
+        ],
+        "author": "Klar Klarsson",
+        "authorRole": "Developer",
+        "authorBio": "asdf",
+        "body1": [],
+        "readTime": "2 timmar",
+        "initial": "GL",
+        "category": "Technology"
+      }
+    }
+  ],
   "pages": [],
-  "vocabularies": {}
+  "vocabularies": {
+    "tags": [
+      "Test"
+    ],
+    "categories": [
+      "Technology"
+    ],
+    "authors": [
+      "Klar Klarsson"
+    ]
+  }
 }
