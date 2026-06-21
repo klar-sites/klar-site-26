@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="en"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Vector — AI-native execution for modern teams</title>
@@ -25,8 +24,9 @@
 
         <nav class="primary-nav" id="site-navigation" aria-label="Primary navigation" data-nav="">
           <ul class="nav-list"><li><a class="nav-link is-active" href="#top" aria-current="page">Home</a></li>
-<li><a class="nav-link" href="#features">Features</a></li>
+<li><a class="nav-link" href="#klar-team-classic-r4n8">Features</a></li>
 <li><a class="nav-link" href="#benefits">Benefits</a></li>
+<li><a class="nav-link is-active" href="#klar-team-classic-r4n8" aria-current="page">Team</a></li>
 <li><a class="nav-link" href="#pricing">Pricing</a></li>
 <li><a class="nav-link" href="#faq">FAQ</a></li>
 <li><a class="nav-link" href="page-types/blog-post.html">Blog</a></li></ul>
@@ -328,7 +328,454 @@
             </div>
           </aside>
         </div>
-      </section>
+      </section><section class="klar-team-classic-r4n8" id="klar-team-classic-r4n8" aria-labelledby="klar-team-classic-r4n8-heading">
+  <style>
+    .klar-team-classic-r4n8 {
+      position: relative;
+      padding: var(--space-20) 0;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .klar-team-classic-r4n8::before {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      content: "";
+      background:
+        radial-gradient(circle at 16% 24%, rgba(139, 92, 246, 0.16), transparent 40%),
+        radial-gradient(circle at 88% 18%, rgba(34, 211, 238, 0.11), transparent 36%),
+        radial-gradient(circle at 50% 92%, rgba(139, 92, 246, 0.1), transparent 42%);
+    }
+
+    .klar-team-classic-r4n8-shell {
+      width: min(calc(100% - var(--space-8)), var(--container-wide));
+      margin-inline: auto;
+    }
+
+    .klar-team-classic-r4n8-layout {
+      display: grid;
+      gap: var(--space-12);
+      align-items: center;
+    }
+
+    .klar-team-classic-r4n8-intro {
+      max-width: 34rem;
+    }
+
+    .klar-team-classic-r4n8-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      width: fit-content;
+      padding: var(--space-2) var(--space-3);
+      margin-bottom: var(--space-5);
+      color: var(--color-primary-strong);
+      font-size: var(--text-xs);
+      font-weight: 850;
+      line-height: 1;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(139, 92, 246, 0.1);
+      border: 0.0625rem solid rgba(167, 139, 250, 0.24);
+      border-radius: var(--radius-full);
+      box-shadow: inset 0 0.0625rem 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .klar-team-classic-r4n8-eyebrow::before {
+      width: 0.45rem;
+      height: 0.45rem;
+      content: "";
+      background: var(--color-green);
+      border-radius: var(--radius-full);
+      box-shadow: 0 0 1rem var(--color-green);
+    }
+
+    .klar-team-classic-r4n8-heading {
+      color: var(--color-text);
+      font-size: clamp(2.25rem, 7vw, 4.35rem);
+      font-weight: 850;
+      line-height: var(--leading-tight);
+      letter-spacing: -0.08em;
+    }
+
+    .klar-team-classic-r4n8-copy {
+      max-width: 30rem;
+      margin-top: var(--space-5);
+      color: var(--color-text-muted);
+      font-size: var(--text-md);
+      line-height: 1.65;
+    }
+
+    .klar-team-classic-r4n8-actions {
+      margin-top: var(--space-8);
+    }
+
+    .klar-team-classic-r4n8-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      min-height: 3rem;
+      padding: 0 var(--space-6);
+      color: var(--color-white);
+      font-size: var(--text-sm);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      background: var(--gradient-primary);
+      border: 0.0625rem solid rgba(167, 139, 250, 0.36);
+      border-radius: var(--radius-full);
+      box-shadow:
+        inset 0 0.0625rem 0 rgba(255, 255, 255, 0.24),
+        0 0.75rem 2rem rgba(139, 92, 246, 0.28);
+      transition:
+        transform var(--duration-fast) var(--ease-standard),
+        box-shadow var(--duration-fast) var(--ease-standard);
+    }
+
+    .klar-team-classic-r4n8-action:hover {
+      transform: translateY(-0.125rem);
+      box-shadow:
+        inset 0 0.0625rem 0 rgba(255, 255, 255, 0.28),
+        0 1rem 2.5rem rgba(139, 92, 246, 0.4);
+    }
+
+    .klar-team-classic-r4n8-action svg {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .klar-team-classic-r4n8-grid {
+      display: grid;
+      gap: var(--space-5);
+    }
+
+    .klar-team-classic-r4n8-person {
+      position: relative;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-5);
+      align-items: center;
+      padding: var(--space-5);
+      overflow: hidden;
+      background: var(--gradient-card);
+      border: 0.0625rem solid var(--color-line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm);
+      transition:
+        transform var(--duration-base) var(--ease-standard),
+        border-color var(--duration-base) var(--ease-standard),
+        box-shadow var(--duration-base) var(--ease-standard);
+    }
+
+    .klar-team-classic-r4n8-person::before {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      content: "";
+      background:
+        radial-gradient(circle at 14% 14%, rgba(139, 92, 246, 0.18), transparent 38%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 40%);
+      opacity: 0;
+      transition: opacity var(--duration-base) var(--ease-standard);
+    }
+
+    .klar-team-classic-r4n8-person:hover {
+      border-color: var(--color-line-strong);
+      transform: translateY(-0.35rem);
+      box-shadow: var(--shadow-md), 0 0 3rem rgba(139, 92, 246, 0.14);
+    }
+
+    .klar-team-classic-r4n8-person:hover::before {
+      opacity: 1;
+    }
+
+    .klar-team-classic-r4n8-person > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .klar-team-classic-r4n8-photo {
+      width: 7.5rem;
+      height: 7.5rem;
+      object-fit: cover;
+      border: 0.1875rem solid rgba(167, 139, 250, 0.35);
+      border-radius: var(--radius-full);
+      box-shadow: 0 0 1.75rem rgba(139, 92, 246, 0.22);
+      transition:
+        transform var(--duration-slow) var(--ease-spring),
+        border-color var(--duration-base) var(--ease-standard),
+        box-shadow var(--duration-base) var(--ease-standard);
+    }
+
+    .klar-team-classic-r4n8-person:hover .klar-team-classic-r4n8-photo {
+      transform: scale(1.055);
+      border-color: var(--color-primary-strong);
+      box-shadow: 0 0 2.5rem rgba(139, 92, 246, 0.38);
+    }
+
+    .klar-team-classic-r4n8-details {
+      min-width: 0;
+    }
+
+    .klar-team-classic-r4n8-name {
+      color: var(--color-text);
+      font-size: var(--text-xl);
+      font-weight: 850;
+      line-height: var(--leading-snug);
+      letter-spacing: -0.04em;
+    }
+
+    .klar-team-classic-r4n8-role {
+      margin-top: var(--space-1);
+      color: var(--color-primary-strong);
+      font-size: var(--text-xs);
+      font-weight: 850;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .klar-team-classic-r4n8-bio {
+      margin-top: var(--space-3);
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+      line-height: 1.6;
+    }
+
+    .klar-team-classic-r4n8-socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-4);
+    }
+
+    .klar-team-classic-r4n8-social {
+      display: grid;
+      width: 2rem;
+      height: 2rem;
+      place-items: center;
+      color: var(--color-text-muted);
+      background: rgba(255, 255, 255, 0.05);
+      border: 0.0625rem solid var(--color-line);
+      border-radius: var(--radius-full);
+      transition:
+        color var(--duration-fast) var(--ease-standard),
+        background-color var(--duration-fast) var(--ease-standard),
+        border-color var(--duration-fast) var(--ease-standard),
+        transform var(--duration-fast) var(--ease-standard);
+    }
+
+    .klar-team-classic-r4n8-social:hover {
+      color: var(--color-primary-strong);
+      background: rgba(139, 92, 246, 0.12);
+      border-color: rgba(167, 139, 250, 0.42);
+      transform: translateY(-0.125rem);
+    }
+
+    .klar-team-classic-r4n8-social svg {
+      width: 0.95rem;
+      height: 0.95rem;
+    }
+
+    .klar-team-classic-r4n8-reveal {
+      opacity: 0;
+      transform: translateY(1.25rem);
+      transition:
+        opacity var(--duration-slow) var(--ease-spring),
+        transform var(--duration-slow) var(--ease-spring);
+    }
+
+    .klar-team-classic-r4n8-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .klar-team-classic-r4n8-delay-a {
+      transition-delay: 90ms;
+    }
+
+    .klar-team-classic-r4n8-delay-b {
+      transition-delay: 180ms;
+    }
+
+    .klar-team-classic-r4n8-delay-c {
+      transition-delay: 270ms;
+    }
+
+    @media (min-width: 40rem) {
+      .klar-team-classic-r4n8-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .klar-team-classic-r4n8-person {
+        grid-template-columns: 1fr;
+        align-content: start;
+      }
+
+      .klar-team-classic-r4n8-photo {
+        width: 8rem;
+        height: 8rem;
+      }
+    }
+
+    @media (min-width: 64rem) {
+      .klar-team-classic-r4n8-layout {
+        grid-template-columns: minmax(20rem, 0.72fr) minmax(0, 1fr);
+        gap: var(--space-16);
+      }
+
+      .klar-team-classic-r4n8-intro {
+        position: sticky;
+        top: calc(var(--header-height) + var(--space-10));
+      }
+    }
+
+    @media (max-width: 31rem) {
+      .klar-team-classic-r4n8-person {
+        grid-template-columns: 1fr;
+      }
+
+      .klar-team-classic-r4n8-photo {
+        width: 7rem;
+        height: 7rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .klar-team-classic-r4n8-reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+
+  <div class="klar-team-classic-r4n8-shell">
+    <div class="klar-team-classic-r4n8-layout">
+      <div class="klar-team-classic-r4n8-intro klar-team-classic-r4n8-reveal">
+        <p class="klar-team-classic-r4n8-eyebrow">Meet the team</p>
+        <h2 class="klar-team-classic-r4n8-heading" id="klar-team-classic-r4n8-heading">The operators behind Vector.</h2>
+        <p class="klar-team-classic-r4n8-copy">
+          A focused team of product thinkers, systems builders, and customer partners designing a calmer way for ambitious teams to execute.
+        </p>
+        <div class="klar-team-classic-r4n8-actions">
+          <a class="klar-team-classic-r4n8-action" href="#cta">
+            Work with us
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M7.5 4.5L13 10l-5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="klar-team-classic-r4n8-grid">
+        <article class="klar-team-classic-r4n8-person klar-team-classic-r4n8-reveal">
+          <img class="klar-team-classic-r4n8-photo" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Portrait of Marcus Chen, Chief Executive Officer" loading="lazy">
+          <div class="klar-team-classic-r4n8-details">
+            <h3 class="klar-team-classic-r4n8-name">Marcus Chen</h3>
+            <p class="klar-team-classic-r4n8-role">CEO</p>
+            <p class="klar-team-classic-r4n8-bio">Shapes Vector’s product strategy and keeps the team focused on work that compounds.</p>
+            <div class="klar-team-classic-r4n8-socials" aria-label="Marcus Chen social links">
+              <a class="klar-team-classic-r4n8-social" href="#team" aria-label="Marcus Chen on X">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 5l12 14M18 5L6 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+              </a>
+              <a class="klar-team-classic-r4n8-social" href="#team" aria-label="Marcus Chen on LinkedIn">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 11v5M8 8v.01M12 16v-5M16 16v-3a2 2 0 0 0-4 0M4 6h16v12H4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="klar-team-classic-r4n8-person klar-team-classic-r4n8-reveal klar-team-classic-r4n8-delay-a">
+          <img class="klar-team-classic-r4n8-photo" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Portrait of Lena Ortiz, Head of Product" loading="lazy">
+          <div class="klar-team-classic-r4n8-details">
+            <h3 class="klar-team-classic-r4n8-name">Lena Ortiz</h3>
+            <p class="klar-team-classic-r4n8-role">Head of Product</p>
+            <p class="klar-team-classic-r4n8-bio">Turns customer signals into precise workflows that help teams decide with confidence.</p>
+            <div class="klar-team-classic-r4n8-socials" aria-label="Lena Ortiz social links">
+              <a class="klar-team-classic-r4n8-social" href="#team" aria-label="Lena Ortiz on X">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 5l12 14M18 5L6 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+              </a>
+              <a class="klar-team-classic-r4n8-social" href="#team" aria-label="Lena Ortiz on LinkedIn">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 11v5M8 8v.01M12 16v-5M16 16v-3a2 2 0 0 0-4 0M4 6h16v12H4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="klar-team-classic-r4n8-person klar-team-classic-r4n8-reveal klar-team-classic-r4n8-delay-b">
+          <img class="klar-team-classic-r4n8-photo" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Portrait of Noah Patel, Engineering Lead" loading="lazy">
+          <div class="klar-team-classic-r4n8-details">
+            <h3 class="klar-team-classic-r4n8-name">Noah Patel</h3>
+            <p class="klar-team-classic-r4n8-role">Engineering Lead</p>
+            <p class="klar-team-classic-r4n8-bio">Builds the execution graph, AI systems, and reliability layer that power Vector.</p>
+            <div class="klar-team-classic-r4n8-socials" aria-label="Noah Patel social links">
+              <a class="klar-team-classic-r4n8-social" href="#team" aria-label="Noah Patel on X">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 5l12 14M18 5L6 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+              </a>
+              <a class="klar-team-classic-r4n8-social" href="#team" aria-label="Noah Patel on LinkedIn">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 11v5M8 8v.01M12 16v-5M16 16v-3a2 2 0 0 0-4 0M4 6h16v12H4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="klar-team-classic-r4n8-person klar-team-classic-r4n8-reveal klar-team-classic-r4n8-delay-c">
+          <img class="klar-team-classic-r4n8-photo" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Portrait of Amara Wells, Customer Success Lead" loading="lazy">
+          <div class="klar-team-classic-r4n8-details">
+            <h3 class="klar-team-classic-r4n8-name">Amara Wells</h3>
+            <p class="klar-team-classic-r4n8-role">Customer Success</p>
+            <p class="klar-team-classic-r4n8-bio">Partners with high-velocity teams to build operating rhythms that actually last.</p>
+            <div class="klar-team-classic-r4n8-socials" aria-label="Amara Wells social links">
+              <a class="klar-team-classic-r4n8-social" href="#team" aria-label="Amara Wells on X">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 5l12 14M18 5L6 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+              </a>
+              <a class="klar-team-classic-r4n8-social" href="#team" aria-label="Amara Wells on LinkedIn">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 11v5M8 8v.01M12 16v-5M16 16v-3a2 2 0 0 0-4 0M4 6h16v12H4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const klarTeamClassicR4n8Section = document.querySelector(".klar-team-classic-r4n8");
+      if (!klarTeamClassicR4n8Section) return;
+
+      const klarTeamClassicR4n8Items = Array.from(klarTeamClassicR4n8Section.querySelectorAll(".klar-team-classic-r4n8-reveal"));
+      const klarTeamClassicR4n8ReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (klarTeamClassicR4n8ReducedMotion || !("IntersectionObserver" in window)) {
+        klarTeamClassicR4n8Items.forEach((klarTeamClassicR4n8Item) => {
+          klarTeamClassicR4n8Item.classList.add("klar-team-classic-r4n8-visible");
+        });
+        return;
+      }
+
+      const klarTeamClassicR4n8Observer = new IntersectionObserver(
+        (klarTeamClassicR4n8Entries, klarTeamClassicR4n8RevealObserver) => {
+          klarTeamClassicR4n8Entries.forEach((klarTeamClassicR4n8Entry) => {
+            if (!klarTeamClassicR4n8Entry.isIntersecting) return;
+            klarTeamClassicR4n8Entry.target.classList.add("klar-team-classic-r4n8-visible");
+            klarTeamClassicR4n8RevealObserver.unobserve(klarTeamClassicR4n8Entry.target);
+          });
+        },
+        {
+          root: null,
+          threshold: 0.14,
+          rootMargin: "0px 0px -8% 0px"
+        }
+      );
+
+      klarTeamClassicR4n8Items.forEach((klarTeamClassicR4n8Item) => {
+        klarTeamClassicR4n8Observer.observe(klarTeamClassicR4n8Item);
+      });
+    })();
+  </script>
+</section>
 
       <section class="section" id="testimonials" aria-labelledby="testimonials-title">
         <div class="container-wide">
@@ -675,5 +1122,5 @@
       </div>
     </footer>
   </div>
-  </body>
-</html>
+  
+</body></html>
