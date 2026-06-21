@@ -1,35 +1,107 @@
 {
   "pageTypes": [
     {
-      "name": "blog-post",
-      "editableElements": ".vblog-2026__title:field(title:Title, name:title, type:string, order:1, section:Content, sectionOrder:1),\n:field(title:Lead, name:lead, type:text, order:2, section:Content, options(layout:editor)),\n.vblog-2026__hero img:field(title:'Hero image', name:image, type:image, order:3, section:Content),\n.vblog-2026__body:field(title:Body, name:text, type:array, order:4, section:Content, options(layout:blocks)),\n.vblog-2026__category:field(title:Category, name:category, type:string, col:6, section:Meta, sectionOrder:2, options(vocab:categories)),\n:field(title:Author, name:author, type:string, col:6, section:Meta, options(vocab:authors)),\n:field(title:'Author role', name:authorRole, type:string, col:6, section:Meta),\n:field(title:Initial, name:initial, type:string, col:6, section:Meta),\n.vblog-2026__readtime:field(title:'Read time', name:readTime, type:string, col:6, section:Meta),\n:field(title:'Created at', name:createdAt, type:string, format:date, default:now, col:6, section:Meta, options(dateFormat:'MMMM D, YYYY')),\n:field(title:Tags, name:tags, type:array, section:Meta, options(vocab:tags)),\n.vblog-2026__related:readonly",
+      "name": "article",
+      "editableElements": ".klar-article-2025-title:field(title:Title, name:title, type:string, order:1, section:Content, sectionOrder:1), .klar-article-2025-dek:field(title:Excerpt, name:excerpt, type:text, order:2, section:Content, options(layout:editor)), .klar-article-2025-cover:field(title:Cover image, name:coverImage, type:image, order:3, section:Content), .klar-article-2025-body:field(title:Article body, name:body, type:array, order:4, section:Content, options(layout:blocks)), .klar-article-2025-category:field(title:Category, name:category, type:string, order:1, col:6, section:Meta, sectionOrder:2, options(vocab:article-categories)), .klar-article-2025-published:field(title:Published date, name:publishedDate, type:string, format:date, default:now, order:2, col:6, section:Meta, options(dateFormat:'MMMM D, YYYY')), .klar-article-2025-read-time:field(title:'Read time', name:readTime, type:string, default:'8 min read', order:3, col:6, section:Meta), .klar-article-2025-author-name:field(title:Author, name:authorName, type:string, order:4, col:6, section:Meta, options(vocab:article-authors)), .klar-article-2025-author-role:field(title:'Author role', name:authorRole, type:string, order:5, col:6, section:Meta), .klar-article-2025-author-avatar:field(title:'Author initials', name:authorInitials, type:string, order:6, col:6, section:Meta), :field(title:Tags, name:tags, type:array, order:7, section:Meta, options(vocab:article-tags))",
       "content": {
-        "lead": "Det kommer att bli riktigt bra det här",
-        "title": "Det här är den bästa bloggen jag har sett",
-        "body": "body",
-        "tags": [
-          "Test"
-        ],
-        "author": "Klar Klarsson",
-        "authorRole": "Developer",
-        "authorBio": "asdf",
-        "body1": [],
-        "readTime": "2 timmar",
-        "initial": "GL",
-        "category": "Technology"
+        "title": "How high-velocity teams make better roadmap decisions",
+        "excerpt": "A practical guide to turning customer signals, revenue risk, and engineering capacity into sharper product bets without slowing your team down.",
+        "coverImage": {
+          "src": "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1800&q=85",
+          "alt": "Product team reviewing a roadmap dashboard together"
+        },
+        "category": "Product strategy",
+        "publishedDate": "2026-03-18",
+        "readTime": "8 min read",
+        "authorName": "Sofia Chen",
+        "authorRole": "VP Product, Vector Systems",
+        "authorInitials": "SC"
+      }
+    },
+    {
+      "name": "blog-post",
+      "editableElements": ".blog-post__title:field(title:Title, name:title, type:string, order:1, section:Content, sectionOrder:1),\n.blog-post__excerpt:field(title:Excerpt, name:excerpt, type:text, order:2, section:Content, options(layout:editor)),\n.blog-post__cover:field(title:Cover image, name:coverImage, type:image, order:3, section:Content),\n.blog-post__body:field(title:Body, name:body, type:array, order:4, section:Content, options(layout:blocks)),\n.blog-post__category:field(title:Category, name:category, type:string, order:1, col:6, section:Meta, sectionOrder:2, options(vocab:blog-categories)),\n.blog-post__date:field(title:Published date, name:publishedDate, type:string, format:date, default:now, order:2, col:6, section:Meta, options(dateFormat:'MMMM D, YYYY')),\n.blog-post__read-time:field(title:'Read time', name:readTime, type:string, default:'6 min read', order:3, col:6, section:Meta),\n.blog-post__author-name:field(title:Author, name:author, type:string, order:4, col:6, section:Meta, options(vocab:blog-authors)),\n:field(title:Tags, name:tags, type:array, order:5, section:Meta, options(vocab:blog-tags))",
+      "content": {
+        "title": "How focused product teams turn noisy signals into better roadmap decisions",
+        "excerpt": "A practical guide to connecting customer feedback, revenue risk, team capacity, and strategic intent before choosing what to ship next.",
+        "coverImage": {
+          "src": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80",
+          "alt": "Product team reviewing a roadmap in a modern workspace"
+        },
+        "category": "Product Strategy",
+        "publishedDate": "2026-05-01",
+        "readTime": "6 min read",
+        "author": "Sofia Chen"
       }
     }
   ],
   "pages": [],
   "vocabularies": {
-    "tags": [
-      "Test"
+    "blog-categories": [
+      "Design",
+      "Development",
+      "Strategy",
+      "News",
+      "Guides",
+      "Product",
+      "Engineering",
+      "Operations",
+      "AI Workflows",
+      "Company",
+      "Product Strategy",
+      "Execution",
+      "Leadership"
     ],
-    "categories": [
-      "Technology"
+    "blog-authors": [
+      "Alex Morgan",
+      "Sam Rivera",
+      "Jordan Lee",
+      "Sofia Chen",
+      "Darius Moore",
+      "Iris Romano",
+      "Vector Team"
     ],
-    "authors": [
-      "Klar Klarsson"
+    "blog-tags": [
+      "css",
+      "javascript",
+      "accessibility",
+      "content",
+      "design-system",
+      "seo",
+      "workflow",
+      "roadmap",
+      "execution",
+      "prioritization",
+      "leadership",
+      "productivity",
+      "automation",
+      "ai",
+      "reporting",
+      "strategy",
+      "roadmaps",
+      "planning"
+    ],
+    "article-categories": [
+      "Product strategy",
+      "Execution",
+      "Leadership",
+      "AI workflows",
+      "Customer research"
+    ],
+    "article-authors": [
+      "Sofia Chen",
+      "Darius Moore",
+      "Iris Romano",
+      "Alex Kim"
+    ],
+    "article-tags": [
+      "Product",
+      "Roadmap",
+      "Leadership",
+      "AI",
+      "Execution",
+      "Strategy",
+      "Customer signals"
     ]
   }
 }
