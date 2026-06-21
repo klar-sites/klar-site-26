@@ -1,680 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vector — AI-native execution for modern teams</title>
-  <meta name="description" content="Vector is a premium SaaS workspace for planning, prioritizing, and shipping critical work with AI-native workflows.">
-  <link rel="stylesheet" href="/style.css">
-  <script src="/script.js" defer></script>
+  <title>Blog Post — Vector</title>
+  <meta name="description" content="Vector blog post — insights on AI-native execution and modern product teams.">
+  <style>
+    .vblog-2026 {
+      --vblog-2026-bg: #07080d;
+      --vblog-2026-bg-soft: #0c0e16;
+      --vblog-2026-surface: rgba(255, 255, 255, 0.045);
+      --vblog-2026-line: rgba(255, 255, 255, 0.11);
+      --vblog-2026-line-strong: rgba(255, 255, 255, 0.18);
+      --vblog-2026-text: #f5f7fb;
+      --vblog-2026-text-muted: #a8b0c3;
+      --vblog-2026-text-soft: #7f879a;
+      --vblog-2026-primary: #8b5cf6;
+      --vblog-2026-primary-strong: #a78bfa;
+      --vblog-2026-primary-soft: rgba(139, 92, 246, 0.18);
+      --vblog-2026-cyan: #22d3ee;
+      --vblog-2026-font: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --vblog-2026-gradient-primary: linear-gradient(135deg, #a78bfa, #8b5cf6 58%, #6d5dfc);
+      --vblog-2026-gradient-border: linear-gradient(135deg, rgba(167, 139, 250, 0.52), rgba(34, 211, 238, 0.22), rgba(255, 255, 255, 0.08));
+      --vblog-2026-radius: 1.25rem;
+      --vblog-2026-radius-full: 999rem;
+      --vblog-2026-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+      position: relative;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      font-family: var(--vblog-2026-font);
+      line-height: 1.65;
+      color: var(--vblog-2026-text);
+      background:
+        radial-gradient(circle at 20% 8%, rgba(139, 92, 246, 0.22), transparent 32%),
+        radial-gradient(circle at 82% 6%, rgba(34, 211, 238, 0.15), transparent 30%),
+        linear-gradient(180deg, var(--vblog-2026-bg), var(--vblog-2026-bg-soft) 45%, var(--vblog-2026-bg) 100%);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .vblog-2026 *,
+    .vblog-2026 *::before,
+    .vblog-2026 *::after { box-sizing: border-box; }
+
+    .vblog-2026__shell {
+      width: min(calc(100% - 2rem), 48rem);
+      margin-inline: auto;
+      padding: 3.5rem 0 5rem;
+    }
+
+    .vblog-2026__back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      color: var(--vblog-2026-text-muted);
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 160ms var(--vblog-2026-ease);
+    }
+    .vblog-2026__back:hover { color: var(--vblog-2026-text); }
+    .vblog-2026__back svg { width: 1rem; height: 1rem; }
+
+    .vblog-2026__meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .vblog-2026__category {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.75rem;
+      color: var(--vblog-2026-primary-strong);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--vblog-2026-primary-soft);
+      border: 0.0625rem solid rgba(167, 139, 250, 0.24);
+      border-radius: var(--vblog-2026-radius-full);
+    }
+    .vblog-2026__date,
+    .vblog-2026__readtime {
+      color: var(--vblog-2026-text-soft);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .vblog-2026__dot {
+      width: 0.25rem;
+      height: 0.25rem;
+      background: var(--vblog-2026-text-soft);
+      border-radius: 50%;
+    }
+
+    .vblog-2026__title {
+      margin: 0 0 1.25rem;
+      font-size: clamp(2rem, 6vw, 3.4rem);
+      font-weight: 820;
+      line-height: 1.08;
+      letter-spacing: -0.05em;
+    }
+
+    .vblog-2026__lead {
+      margin: 0 0 2rem;
+      color: var(--vblog-2026-text-muted);
+      font-size: 1.1875rem;
+      line-height: 1.6;
+    }
+
+    .vblog-2026__author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-bottom: 2rem;
+      margin-bottom: 2.5rem;
+      border-bottom: 0.0625rem solid var(--vblog-2026-line);
+    }
+    .vblog-2026__avatar {
+      display: grid;
+      width: 2.75rem;
+      height: 2.75rem;
+      flex: 0 0 auto;
+      place-items: center;
+      color: #fff;
+      font-size: 0.875rem;
+      font-weight: 850;
+      background: linear-gradient(135deg, var(--vblog-2026-primary), var(--vblog-2026-cyan));
+      border-radius: 50%;
+    }
+    .vblog-2026__author-name {
+      color: var(--vblog-2026-text);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+    .vblog-2026__author-role {
+      color: var(--vblog-2026-text-soft);
+      font-size: 0.8rem;
+    }
+
+    .vblog-2026__hero {
+      position: relative;
+      margin-bottom: 2.75rem;
+    }
+    .vblog-2026__hero::before {
+      position: absolute;
+      inset: -0.125rem;
+      z-index: 0;
+      content: "";
+      background: var(--vblog-2026-gradient-border);
+      border-radius: calc(var(--vblog-2026-radius) + 0.125rem);
+      opacity: 0.8;
+    }
+    .vblog-2026__hero img {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: var(--vblog-2026-radius);
+    }
+
+    .vblog-2026__body {
+      color: var(--vblog-2026-text-muted);
+      font-size: 1.0625rem;
+      line-height: 1.78;
+    }
+    .vblog-2026__body > * { margin: 0 0 1.4rem; }
+    .vblog-2026__body h2 {
+      margin: 2.6rem 0 1rem;
+      color: var(--vblog-2026-text);
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .vblog-2026__body h3 {
+      margin: 2rem 0 0.75rem;
+      color: var(--vblog-2026-text);
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .vblog-2026__body a {
+      color: var(--vblog-2026-primary-strong);
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+    .vblog-2026__body strong { color: var(--vblog-2026-text); }
+    .vblog-2026__body blockquote {
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      border-left: 0.1875rem solid var(--vblog-2026-primary);
+      color: var(--vblog-2026-text);
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+    .vblog-2026__body ul,
+    .vblog-2026__body ol { padding-left: 1.25rem; }
+    .vblog-2026__body li { margin-bottom: 0.5rem; }
+    .vblog-2026__body img {
+      width: 100%;
+      border-radius: var(--vblog-2026-radius);
+    }
+
+    .vblog-2026__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 3rem 0;
+      padding-top: 2rem;
+      border-top: 0.0625rem solid var(--vblog-2026-line);
+    }
+    .vblog-2026__tag {
+      padding: 0.35rem 0.75rem;
+      color: var(--vblog-2026-text-muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      background: var(--vblog-2026-surface);
+      border: 0.0625rem solid var(--vblog-2026-line);
+      border-radius: var(--vblog-2026-radius-full);
+    }
+
+    .vblog-2026__related-head {
+      margin: 0 0 1.5rem;
+      color: var(--vblog-2026-text);
+      font-size: 1.5rem;
+      font-weight: 820;
+      letter-spacing: -0.03em;
+    }
+    .vblog-2026__related-grid {
+      display: grid;
+      gap: 1rem;
+    }
+    @media (min-width: 36rem) {
+      .vblog-2026__related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .vblog-2026__card {
+      display: block;
+      overflow: hidden;
+      text-decoration: none;
+      background: var(--vblog-2026-surface);
+      border: 0.0625rem solid var(--vblog-2026-line);
+      border-radius: var(--vblog-2026-radius);
+      transition: transform 260ms var(--vblog-2026-ease), border-color 260ms var(--vblog-2026-ease);
+    }
+    .vblog-2026__card:hover {
+      transform: translateY(-0.25rem);
+      border-color: var(--vblog-2026-line-strong);
+    }
+    .vblog-2026__card img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+    .vblog-2026__card-body { padding: 1.25rem; }
+    .vblog-2026__card-cat {
+      color: var(--vblog-2026-primary-strong);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .vblog-2026__card-title {
+      margin: 0.5rem 0 0;
+      color: var(--vblog-2026-text);
+      font-size: 1.05rem;
+      font-weight: 800;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+
+    .vblog-2026__empty {
+      color: var(--vblog-2026-text-soft);
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <article class="vblog-2026">
+    <div class="vblog-2026__shell">
 
-  <div class="page-shell" id="top">
-    <header class="site-header" data-site-header>
-      <div class="container-wide header-shell">
-        <a class="brand" href="#top" aria-label="Vector home">
-          <span class="logo-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M5 18.2L10.7 5.8c.5-1.1 2.1-1.1 2.6 0L19 18.2c.4.9-.6 1.8-1.4 1.2l-5-3.5a1 1 0 0 0-1.2 0l-5 3.5c-.8.6-1.8-.3-1.4-1.2Z" fill="currentColor"/>
-            </svg>
-          </span>
-          <span>Vector</span>
-        </a>
+      <a class="vblog-2026__back" href="/blog">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M12.5 4.5L7 10l5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        Back to blog
+      </a>
 
-        <nav class="primary-nav" id="site-navigation" aria-label="Primary navigation" data-nav>
-          <ul class="nav-list">
-            <li><a class="nav-link is-active" href="#top" aria-current="page">Home</a></li>
-            <li><a class="nav-link" href="#features">Features</a></li>
-            <li><a class="nav-link" href="#benefits">Benefits</a></li>
-            <li><a class="nav-link" href="#pricing">Pricing</a></li>
-            <li><a class="nav-link" href="#faq">FAQ</a></li>
-          </ul>
-        </nav>
+      <!-- The body renders from the CURRENT page's own content -->
+      <div id="vblog-2026-post">
+        <header>
+          <div class="vblog-2026__meta">
+            
+            <span class="vblog-2026__date"></span>
+            
+          </div>
 
-        <div class="header-actions">
-          <a class="btn btn-ghost" href="#faq">Sign in</a>
-          <a class="btn btn-primary" href="#pricing">Start free</a>
+          <h1 class="vblog-2026__title">Title</h1>
+
+          <p class="vblog-2026__lead">Lead</p>
+
+          <div class="vblog-2026__author">
+            <span class="vblog-2026__avatar"></span>
+            <div>
+              <div class="vblog-2026__author-name">fasdfas</div>
+              <div class="vblog-2026__author-role">sadf</div>
+            </div>
+          </div>
+        </header>
+
+        
+
+        <div class="vblog-2026__body">
+          &lt;p&gt;Start writing your article…&lt;/p&gt;&lt;p&gt;New para graphf asdf asdf adsf adsf adsf adsf adsf asdf sdf adsf adsf asdf adsf asdf asdf asdf asd fasdf asd fds&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;li&gt;Item 2&lt;/li&gt;&lt;li class="klar-empty"&gt;&lt;/li&gt;&lt;/ul&gt;&lt;blockquote&gt;Gabriel Lantz&lt;/blockquote&gt;
         </div>
 
-        <button class="nav-toggle" type="button" aria-label="Open navigation" aria-controls="site-navigation" aria-expanded="false" data-nav-toggle>
-          <span class="nav-toggle-lines" aria-hidden="true"></span>
-        </button>
+        
+        <div class="vblog-2026__tags">
+          <span class="vblog-2026__tag">#Test</span>
+        </div>
+        
       </div>
-    </header>
+      <template data-for="vblog-2026-post" data-query="currentPage()">
+        <header>
+          <div class="vblog-2026__meta">
+            {% if page.content.category %}<span class="vblog-2026__category">{{ page.content.category }}</span>{% endif %}
+            <span class="vblog-2026__date">{{ page.content.createdAt | localeDate: 'en-US' }}</span>
+            {% if page.content.readTime %}<span class="vblog-2026__dot"></span><span class="vblog-2026__readtime">{{ page.content.readTime }}</span>{% endif %}
+          </div>
 
-    <main id="main">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="container-wide hero-grid">
-          <div class="hero-content reveal">
-            <p class="eyebrow">AI execution layer for product teams</p>
-            <h1 class="hero-title" id="hero-title">
-              Ship the right work <span class="gradient-text">before competitors do.</span>
-            </h1>
-            <p class="hero-copy">
-              Vector turns strategy, customer signals, roadmap bets, and engineering progress into one focused operating system. Plan smarter, decide faster, and keep every team aligned without meeting overload.
-            </p>
-            <div class="hero-actions" aria-label="Hero actions">
-              <a class="btn btn-primary btn-large" href="#pricing">
-                Start building free
-                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                  <path d="M7.5 4.5L13 10l-5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-              <a class="btn btn-secondary btn-large" href="#features">
-                See how it works
-              </a>
-            </div>
-            <div class="trust-row">
-              <div class="avatar-stack" aria-hidden="true">
-                <span class="avatar">AK</span>
-                <span class="avatar">MR</span>
-                <span class="avatar">JL</span>
-                <span class="avatar">NS</span>
-              </div>
-              <p>Trusted by 8,400+ operators, founders, and product leaders.</p>
+          <h1 class="vblog-2026__title">{{ page.content.title }}</h1>
+
+          {% if page.content.lead %}<p class="vblog-2026__lead">{{ page.content.lead }}</p>{% endif %}
+
+          <div class="vblog-2026__author">
+            <span class="vblog-2026__avatar">{{ page.content.initial }}</span>
+            <div>
+              <div class="vblog-2026__author-name">{{ page.content.author }}</div>
+              <div class="vblog-2026__author-role">{{ page.content.authorRole }}</div>
             </div>
           </div>
+        </header>
 
-          <div class="hero-visual reveal delay-2" aria-label="Vector product dashboard preview">
-            <article class="product-card">
-              <div class="window-bar">
-                <div class="window-dots" aria-hidden="true">
-                  <span class="window-dot"></span>
-                  <span class="window-dot"></span>
-                  <span class="window-dot"></span>
-                </div>
-                <span class="window-label">vector://command-center</span>
-              </div>
+        {% if page.content.image.src %}
+        <figure class="vblog-2026__hero">
+          <img src="{{ page.content.image.src }}" alt="{{ page.content.image.alt }}">
+        </figure>
+        {% endif %}
 
-              <div class="command-bar">
-                <span class="command-icon" aria-hidden="true">
-                  <svg viewBox="0 0 20 20" fill="none">
-                    <path d="M4 10h12M10 4v12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  </svg>
-                </span>
-                <span>Prioritize the launch plan from current revenue risk, support volume, and team capacity.</span>
-              </div>
-
-              <div class="dashboard-grid">
-                <div class="metric-row">
-                  <div class="metric-card">
-                    <p class="metric-label">Cycle time</p>
-                    <p class="metric-value">-38%</p>
-                    <p class="metric-change">Improving weekly</p>
-                  </div>
-                  <div class="metric-card">
-                    <p class="metric-label">Focus score</p>
-                    <p class="metric-value">94</p>
-                    <p class="metric-change">On target</p>
-                  </div>
-                  <div class="metric-card">
-                    <p class="metric-label">Blocked work</p>
-                    <p class="metric-value">3</p>
-                    <p class="metric-change">7 resolved</p>
-                  </div>
-                </div>
-
-                <div class="pipeline-card">
-                  <div class="card-heading">
-                    <span>Launch pipeline</span>
-                    <span class="pill">Live</span>
-                  </div>
-                  <ul class="pipeline-list">
-                    <li class="pipeline-item">
-                      <span class="status-dot" aria-hidden="true"></span>
-                      <div>
-                        <p class="pipeline-title">Enterprise audit trail</p>
-                        <p class="pipeline-meta">Design review · Today</p>
-                      </div>
-                      <span class="progress" aria-label="76 percent complete"><span style="width: 76%"></span></span>
-                    </li>
-                    <li class="pipeline-item">
-                      <span class="status-dot" aria-hidden="true"></span>
-                      <div>
-                        <p class="pipeline-title">Usage-based billing</p>
-                        <p class="pipeline-meta">Engineering · 2 days</p>
-                      </div>
-                      <span class="progress" aria-label="58 percent complete"><span style="width: 58%"></span></span>
-                    </li>
-                    <li class="pipeline-item">
-                      <span class="status-dot" aria-hidden="true"></span>
-                      <div>
-                        <p class="pipeline-title">AI triage assistant</p>
-                        <p class="pipeline-meta">Beta cohort · Ready</p>
-                      </div>
-                      <span class="progress" aria-label="91 percent complete"><span style="width: 91%"></span></span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="insight-card" aria-label="Insight summary">
-                  <span class="insight-line"></span>
-                  <span class="insight-line"></span>
-                  <span class="insight-line"></span>
-                </div>
-              </div>
-            </article>
-          </div>
+        <div class="vblog-2026__body">
+          {% for block in page.content.text %}{{ block.html }}{% else %}<p>Start writing your article…</p>{% endfor %}
         </div>
-      </section>
 
-      <section class="logo-cloud section-tight" aria-label="Customer logos">
-        <div class="container-wide">
-          <p>Chosen by high-velocity teams building category-defining products</p>
-          <div class="logo-grid">
-            <div class="logo-item">Northstar</div>
-            <div class="logo-item">Axiom</div>
-            <div class="logo-item">Kite Labs</div>
-            <div class="logo-item">OrbitPay</div>
-            <div class="logo-item">Forma</div>
-            <div class="logo-item">PulseAI</div>
-          </div>
+        {% if page.content.tags %}
+        <div class="vblog-2026__tags">
+          {% for tag in page.content.tags %}<span class="vblog-2026__tag">#{{ tag }}</span>{% endfor %}
         </div>
-      </section>
+        {% endif %}
+      </template>
 
-      <section class="section" id="features" aria-labelledby="features-title">
-        <div class="container-wide">
-          <div class="section-header reveal">
-            <p class="section-kicker">Features</p>
-            <h2 class="section-title" id="features-title">A calmer way to run ambitious work.</h2>
-            <p class="section-copy">
-              Vector combines structured planning, real-time intelligence, and elegant team workflows so execution stays clear from idea to release.
-            </p>
-          </div>
-
-          <div class="features-grid">
-            <article class="feature-card is-wide reveal">
-              <span class="icon-badge" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M4 7h16M7 12h10M10 17h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </span>
-              <h3>AI-native prioritization</h3>
-              <p>
-                Convert user feedback, sales notes, support tickets, and product strategy into ranked initiatives with evidence, tradeoffs, and impact estimates attached.
-              </p>
-              <a class="feature-link" href="#benefits">
-                Explore benefits
-                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                  <path d="M7.5 4.5L13 10l-5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-            </article>
-
-            <article class="feature-card reveal delay-1">
-              <span class="icon-badge cyan" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M6 6h12v12H6zM9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </span>
-              <h3>Execution graph</h3>
-              <p>
-                Map dependencies, owners, risks, and milestones automatically so leaders can see exactly where momentum is building or breaking.
-              </p>
-            </article>
-
-            <article class="feature-card reveal delay-2">
-              <span class="icon-badge green" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-              <h3>Decision records</h3>
-              <p>
-                Keep context alive with concise summaries of what changed, why it changed, and which assumptions need to be revisited next.
-              </p>
-            </article>
-
-            <article class="feature-card reveal">
-              <span class="icon-badge" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M12 3v18M4 8h16M6 16h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </span>
-              <h3>Workflow automation</h3>
-              <p>
-                Trigger status updates, risk alerts, release notes, stakeholder briefs, and sprint rituals from the signals your team already creates.
-              </p>
-            </article>
-
-            <article class="feature-card is-wide reveal delay-1">
-              <span class="icon-badge cyan" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M4 19V5M4 19h16M8 16v-5M12 16V8M16 16v-8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </span>
-              <h3>Executive-grade reporting</h3>
-              <p>
-                Replace manual decks with living views for roadmap health, customer impact, engineering throughput, revenue exposure, and strategic bets.
-              </p>
-              <a class="feature-link" href="#pricing">
-                View plans
-                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                  <path d="M7.5 4.5L13 10l-5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-            </article>
-          </div>
+      <!-- Related posts: same category, excluding the current page -->
+      <section>
+        <h2 class="vblog-2026__related-head">More from Vector</h2>
+        <div id="vblog-2026-related" class="vblog-2026__related-grid">
+          
+            <p class="vblog-2026__empty">No other posts yet.</p>
+          
         </div>
-      </section>
-
-      <section class="section benefits" id="benefits" aria-labelledby="benefits-title">
-        <div class="container-wide benefit-layout">
-          <div class="benefit-copy reveal">
-            <p class="section-kicker">Benefits</p>
-            <h2 class="section-title" id="benefits-title">Designed for teams that cannot afford drift.</h2>
-            <p class="section-copy">
-              Vector gives every function the same operating picture without forcing everyone into another heavy process.
-            </p>
-
-            <div class="benefit-list">
-              <article class="benefit-item">
-                <span class="check-icon" aria-hidden="true">
-                  <svg viewBox="0 0 20 20" fill="none">
-                    <path d="M5 10.5l3.2 3.2L15.5 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-                <div>
-                  <h3>Less coordination tax</h3>
-                  <p>Turn fragmented updates into clear next actions, risks, and decisions before another status meeting appears.</p>
-                </div>
-              </article>
-
-              <article class="benefit-item">
-                <span class="check-icon" aria-hidden="true">
-                  <svg viewBox="0 0 20 20" fill="none">
-                    <path d="M5 10.5l3.2 3.2L15.5 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-                <div>
-                  <h3>Sharper product bets</h3>
-                  <p>Prioritize what matters with customer evidence, effort, revenue impact, confidence, and strategic fit in one view.</p>
-                </div>
-              </article>
-
-              <article class="benefit-item">
-                <span class="check-icon" aria-hidden="true">
-                  <svg viewBox="0 0 20 20" fill="none">
-                    <path d="M5 10.5l3.2 3.2L15.5 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-                <div>
-                  <h3>Faster leadership alignment</h3>
-                  <p>Give executives a reliable source of truth while teams keep moving in the tools and rituals they prefer.</p>
-                </div>
-              </article>
-            </div>
-          </div>
-
-          <aside class="stats-panel reveal delay-2" aria-label="Customer outcome statistics">
-            <div class="stats-grid">
-              <div class="stat-card">
-                <p class="stat-number">42%</p>
-                <p class="stat-label">average reduction in planning and reporting time.</p>
+        <template data-for="vblog-2026-related" data-query="list('blog-post', { published: true, order: 'published_at:desc', limit: 4 })">
+          {% for item in items %}
+            {% if item.filePath != page.filePath %}
+            <a class="vblog-2026__card" href="{{ item.url }}">
+              {% if item.content.image.src %}<img src="{{ item.content.image.src }}" alt="{{ item.content.image.alt }}">{% endif %}
+              <div class="vblog-2026__card-body">
+                <div class="vblog-2026__card-cat">{{ item.content.category }}</div>
+                <h3 class="vblog-2026__card-title">{{ item.content.title }}</h3>
               </div>
-              <div class="stat-card">
-                <p class="stat-number">3.1x</p>
-                <p class="stat-label">more roadmap decisions tied to measurable customer impact.</p>
-              </div>
-              <div class="stat-card">
-                <p class="stat-number">18k</p>
-                <p class="stat-label">weekly decisions clarified by Vector workspaces.</p>
-              </div>
-              <div class="stat-card">
-                <p class="stat-number">99.9%</p>
-                <p class="stat-label">uptime for teams coordinating launches around the world.</p>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section class="section" id="testimonials" aria-labelledby="testimonials-title">
-        <div class="container-wide">
-          <div class="section-header reveal">
-            <p class="section-kicker">Social proof</p>
-            <h2 class="section-title" id="testimonials-title">Loved by teams that move fast and stay precise.</h2>
-            <p class="section-copy">
-              From early-stage startups to scaled product organizations, Vector helps teams protect focus while raising the quality of every decision.
-            </p>
-          </div>
-
-          <div class="testimonial-grid">
-            <article class="quote-card reveal">
-              <div class="quote-stars" aria-label="Five out of five stars">
-                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 4 1 5.5-5.1-2.7-5 2.7 1-5.6-4.1-3.9 5.6-.8L10 1.8z"/></svg>
-                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 4 1 5.5-5.1-2.7-5 2.7 1-5.6-4.1-3.9 5.6-.8L10 1.8z"/></svg>
-                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 4 1 5.5-5.1-2.7-5 2.7 1-5.6-4.1-3.9 5.6-.8L10 1.8z"/></svg>
-                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 4 1 5.5-5.1-2.7-5 2.7 1-5.6-4.1-3.9 5.6-.8L10 1.8z"/></svg>
-                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 4 1 5.5-5.1-2.7-5 2.7 1-5.6-4.1-3.9 5.6-.8L10 1.8z"/></svg>
-              </div>
-              <blockquote>
-                “Vector replaced three weekly meetings and gave our leadership team a cleaner view of what was actually happening.”
-              </blockquote>
-              <footer class="quote-author">
-                <span class="author-avatar" aria-hidden="true">SC</span>
-                <div>
-                  <p class="author-name">Sofia Chen</p>
-                  <p class="author-role">VP Product, Axiom</p>
-                </div>
-              </footer>
-            </article>
-
-            <article class="quote-card reveal delay-1">
-              <div class="quote-stars" aria-label="Five out of five stars">
-                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 4 1 5.5-5.1-2.7-5 2.7 1-5.6-4.1-3.9 5.6-.8L10 1.8z"/></svg>
-                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 4 1 5.5-5.1-2.7-5 2.7 1-5.6-4.1-3.9 5.6-.8L10 1.8z"/></svg>
-                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 4 1 5.5-5.1-2.7-5 2.7 1-5.6-4.1-3.9 5.6-.8L10 1.8z"/></svg>
-                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 4 1 5.5-5.1-2.7-5 2.7 1-5.6-4.1-3.9 5.6-.8L10 1.8z"/></svg>
-                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 4 1 5.5-5.1-2.7-5 2.7 1-5.6-4.1-3.9 5.6-.8L10 1.8z"/></svg>
-              </div>
-              <blockquote>
-                “The AI summaries are the first ones our engineers trust. They capture nuance without creating noise.”
-              </blockquote>
-              <footer class="quote-author">
-                <span class="author-avatar" aria-hidden="true">DM</span>
-                <div>
-                  <p class="author-name">Darius Moore</p>
-                  <p class="author-role">CTO, Kite Labs</p>
-                </div>
-              </footer>
-            </article>
-
-            <article class="quote-card reveal delay-2">
-              <div class="quote-stars" aria-label="Five out of five stars">
-                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 4 1 5.5-5.1-2.7-5 2.7 1-5.6-4.1-3.9 5.6-.8L10 1.8z"/></svg>
-                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 4 1 5.5-5.1-2.7-5 2.7 1-5.6-4.1-3.9 5.6-.8L10 1.8z"/></svg>
-                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 4 1 5.5-5.1-2.7-5 2.7 1-5.6-4.1-3.9 5.6-.8L10 1.8z"/></svg>
-                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 4 1 5.5-5.1-2.7-5 2.7 1-5.6-4.1-3.9 5.6-.8L10 1.8z"/></svg>
-                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 4 1 5.5-5.1-2.7-5 2.7 1-5.6-4.1-3.9 5.6-.8L10 1.8z"/></svg>
-              </div>
-              <blockquote>
-                “We now connect roadmap decisions to revenue risk in minutes. That changed how we choose what to ship.”
-              </blockquote>
-              <footer class="quote-author">
-                <span class="author-avatar" aria-hidden="true">IR</span>
-                <div>
-                  <p class="author-name">Iris Romano</p>
-                  <p class="author-role">COO, OrbitPay</p>
-                </div>
-              </footer>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section pricing" id="pricing" aria-labelledby="pricing-title">
-        <div class="container-wide">
-          <div class="section-header reveal">
-            <p class="section-kicker">Pricing</p>
-            <h2 class="section-title" id="pricing-title">Start lean. Scale when the work demands it.</h2>
-            <p class="section-copy">
-              Simple plans for teams that want premium execution infrastructure without enterprise complexity.
-            </p>
-          </div>
-
-          <div class="pricing-grid">
-            <article class="pricing-card reveal">
-              <h3 class="plan-name">Starter</h3>
-              <p class="plan-description">For founders and small teams creating a reliable operating rhythm.</p>
-              <p class="price"><strong>$19</strong><span>per user/month</span></p>
-              <ul class="plan-list">
-                <li>
-                  <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3 3L15 6.5" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  <span>Roadmaps, projects, milestones, and owners</span>
-                </li>
-                <li>
-                  <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3 3L15 6.5" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  <span>AI summaries for updates and decisions</span>
-                </li>
-                <li>
-                  <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3 3L15 6.5" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  <span>Up to 3 connected signal sources</span>
-                </li>
-              </ul>
-              <a class="btn btn-secondary" href="#cta">Start Starter</a>
-            </article>
-
-            <article class="pricing-card is-popular reveal delay-1">
-              <span class="popular-badge">Most popular</span>
-              <h3 class="plan-name">Growth</h3>
-              <p class="plan-description">For product organizations coordinating multiple teams and launches.</p>
-              <p class="price"><strong>$49</strong><span>per user/month</span></p>
-              <ul class="plan-list">
-                <li>
-                  <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3 3L15 6.5" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  <span>Everything in Starter</span>
-                </li>
-                <li>
-                  <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3 3L15 6.5" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  <span>Execution graph with dependency detection</span>
-                </li>
-                <li>
-                  <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3 3L15 6.5" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  <span>Unlimited signal sources and reporting views</span>
-                </li>
-                <li>
-                  <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3 3L15 6.5" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  <span>Priority support and onboarding templates</span>
-                </li>
-              </ul>
-              <a class="btn btn-primary" href="#cta">Start Growth</a>
-            </article>
-
-            <article class="pricing-card reveal delay-2">
-              <h3 class="plan-name">Scale</h3>
-              <p class="plan-description">For companies that need governance, security, and executive visibility.</p>
-              <p class="price"><strong>Custom</strong><span>annual plan</span></p>
-              <ul class="plan-list">
-                <li>
-                  <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3 3L15 6.5" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  <span>Everything in Growth</span>
-                </li>
-                <li>
-                  <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3 3L15 6.5" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  <span>SAML SSO, SCIM, audit logs, and data controls</span>
-                </li>
-                <li>
-                  <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3 3L15 6.5" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  <span>Custom AI policies and workspace governance</span>
-                </li>
-              </ul>
-              <a class="btn btn-secondary" href="#cta">Talk to sales</a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="faq" aria-labelledby="faq-title">
-        <div class="container faq-layout">
-          <div class="faq-aside reveal">
-            <p class="section-kicker">FAQ</p>
-            <h2 class="section-title" id="faq-title">Questions before you switch?</h2>
-            <p class="section-copy">
-              Vector is designed to be powerful on day one and flexible enough for the way your team already works.
-            </p>
-          </div>
-
-          <div class="faq-list reveal delay-1" data-faq-list>
-            <article class="faq-item is-open">
-              <h3>
-                <button class="faq-question" type="button" aria-expanded="true" aria-controls="faq-answer-1">
-                  How quickly can our team get started?
-                  <span class="faq-icon" aria-hidden="true"></span>
-                </button>
-              </h3>
-              <div class="faq-answer" id="faq-answer-1">
-                <div class="faq-answer-inner">
-                  <p>
-                    Most teams create their first workspace in under 15 minutes. You can import current initiatives, connect signal sources, and use templates for roadmap reviews, launch planning, and weekly leadership updates.
-                  </p>
-                </div>
-              </div>
-            </article>
-
-            <article class="faq-item">
-              <h3>
-                <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2">
-                  Does Vector replace our project management tool?
-                  <span class="faq-icon" aria-hidden="true"></span>
-                </button>
-              </h3>
-              <div class="faq-answer" id="faq-answer-2">
-                <div class="faq-answer-inner">
-                  <p>
-                    Vector can operate as your primary planning workspace, but it also works as an execution layer across existing tools. The goal is to connect strategy, decisions, and progress—not force every team into a new ritual.
-                  </p>
-                </div>
-              </div>
-            </article>
-
-            <article class="faq-item">
-              <h3>
-                <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-3">
-                  How does Vector use AI safely?
-                  <span class="faq-icon" aria-hidden="true"></span>
-                </button>
-              </h3>
-              <div class="faq-answer" id="faq-answer-3">
-                <div class="faq-answer-inner">
-                  <p>
-                    Vector uses AI to summarize, classify, recommend, and surface patterns. Admins can configure data boundaries, approval flows, retention rules, and workspace-level AI policies for sensitive teams.
-                  </p>
-                </div>
-              </div>
-            </article>
-
-            <article class="faq-item">
-              <h3>
-                <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-4">
-                  Can leadership see progress without interrupting teams?
-                  <span class="faq-icon" aria-hidden="true"></span>
-                </button>
-              </h3>
-              <div class="faq-answer" id="faq-answer-4">
-                <div class="faq-answer-inner">
-                  <p>
-                    Yes. Vector creates living executive views from project activity, decisions, risks, and outcomes. Leaders get a clear operating picture while teams stay focused on building.
-                  </p>
-                </div>
-              </div>
-            </article>
-
-            <article class="faq-item">
-              <h3>
-                <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-5">
-                  Is there a free trial?
-                  <span class="faq-icon" aria-hidden="true"></span>
-                </button>
-              </h3>
-              <div class="faq-answer" id="faq-answer-5">
-                <div class="faq-answer-inner">
-                  <p>
-                    Yes. Growth includes a 14-day trial with sample workspaces, guided onboarding, and no credit card required. Scale customers can request a tailored pilot with migration support.
-                  </p>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="cta" aria-labelledby="cta-title">
-        <div class="container-wide">
-          <div class="cta-band reveal">
-            <p class="section-kicker">Start today</p>
-            <h2 class="cta-title" id="cta-title">Build the operating system your best work deserves.</h2>
-            <p class="cta-copy">
-              Try Vector with your team, import one active initiative, and see where focus, risk, and momentum really stand.
-            </p>
-            <div class="cta-actions">
-              <a class="btn btn-primary btn-large" href="#pricing">
-                Start free trial
-                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                  <path d="M7.5 4.5L13 10l-5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-              <a class="btn btn-secondary btn-large" href="#faq">Read FAQ</a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container-wide">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <a class="brand" href="#top" aria-label="Vector home">
-              <span class="logo-mark" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M5 18.2L10.7 5.8c.5-1.1 2.1-1.1 2.6 0L19 18.2c.4.9-.6 1.8-1.4 1.2l-5-3.5a1 1 0 0 0-1.2 0l-5 3.5c-.8.6-1.8-.3-1.4-1.2Z" fill="currentColor"/>
-                </svg>
-              </span>
-              <span>Vector</span>
             </a>
-            <p>
-              A precise, AI-native execution workspace for modern SaaS teams that want to ship with confidence.
-            </p>
-          </div>
+            {% endif %}
+          {% else %}
+            <p class="vblog-2026__empty">No other posts yet.</p>
+          {% endfor %}
+        </template>
+      </section>
 
-          <div class="footer-links">
-            <div class="footer-column">
-              <h2>Product</h2>
-              <ul>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#benefits">Benefits</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#faq">FAQ</a></li>
-              </ul>
-            </div>
-
-            <div class="footer-column">
-              <h3>Company</h3>
-              <ul>
-                <li><a href="#testimonials">Customers</a></li>
-                <li><a href="#cta">Get started</a></li>
-                <li><a href="#top">Security</a></li>
-                <li><a href="#top">Status</a></li>
-              </ul>
-            </div>
-
-            <div class="footer-column">
-              <h3>Resources</h3>
-              <ul>
-                <li><a href="#features">Product tour</a></li>
-                <li><a href="#benefits">Use cases</a></li>
-                <li><a href="#faq">Support</a></li>
-                <li><a href="#top">Privacy</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <p>© 2026 Vector Systems. All rights reserved.</p>
-          <div class="social-links" aria-label="Social links">
-            <a class="social-link" href="#top" aria-label="Vector on X">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M6 5l12 14M18 5L6 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </a>
-            <a class="social-link" href="#top" aria-label="Vector community">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M8 18c-2.5 0-4-1.7-4-4.1C4 10 7 7 12 7s8 3 8 6.9c0 2.4-1.5 4.1-4 4.1M9 14h.01M15 14h.01M10 18l-1 3M14 18l1 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </a>
-            <a class="social-link" href="#top" aria-label="Vector on GitHub">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M9 19c-4 1.2-4-2-5-2.5M15 22v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6A4.6 4.6 0 0 0 18.7 7a4.3 4.3 0 0 0-.1-3.3s-1.1-.3-3.6 1.3a12.4 12.4 0 0 0-6 0C6.5 3.4 5.4 3.7 5.4 3.7A4.3 4.3 0 0 0 5.3 7 4.6 4.6 0 0 0 4 10.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </div>
-</body>
+    </div>
+  </article>
+  </body>
 </html>
